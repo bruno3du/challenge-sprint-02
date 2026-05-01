@@ -1,0 +1,387 @@
+*{
+    box-sizing: border-box;
+}
+
+/*  Engagement — Design System Tokens
+    Abstracted from the Figma layouts (Login, Cadastro, Início, Calendário,
+    Agendados, Premiação, Profile). Cleaned-up, token-first rewrite. */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap");
+
+:root {
+    /* ── Brand / primary ────────────────────────────────────────────────
+     The dominant blue from buttons + table header. */
+    --brand-50: #eef3ff;
+    --brand-100: #dbe5ff;
+    --brand-200: #b8caff;
+    --brand-300: #8fabff;
+    --brand-400: #6c8dfa;
+    --brand-500: #4f7af0; /* buttons / links */
+    --brand-600: #3e67e0; /* hover */
+    --brand-700: #2f52b5;
+    --brand-800: #2a3f7a; /* table header / dark nav */
+    --brand-900: #1e2d59;
+
+    --primary: var(--brand-500);
+    --primary-hover: var(--brand-600);
+    --primary-press: var(--brand-700);
+    --primary-ink: #ffffff;
+    --primary-soft: var(--brand-50);
+    --primary-ring: rgba(79, 122, 240, 0.28);
+
+    /* ── Neutrals ─────────────────────────────────────────────────────── */
+    --ink-900: #14171f; /* page titles */
+    --ink-800: #1f2430;
+    --ink-700: #2e3442; /* body strong */
+    --ink-600: #4a5164; /* body */
+    --ink-500: #6b7186; /* meta / labels */
+    --ink-400: #9097a8; /* placeholder */
+    --ink-300: #c4c9d4; /* borders strong */
+    --ink-200: #e2e5ec; /* borders */
+    --ink-150: #eceff4;
+    --ink-100: #f3f5f8; /* input fill */
+    --ink-50: #f7f8fb; /* page bg */
+    --surface: #ffffff;
+
+    /* ── Semantic ─────────────────────────────────────────────────────── */
+    --success-500: #22b573;
+    --success-50: #e7f7ee;
+    --warning-500: #e8a93a;
+    --warning-50: #fdf3df;
+    --danger-500: #e54d5a;
+    --danger-50: #fdecee;
+    --info-500: #3c9ae0;
+    --info-50: #e5f2fb;
+
+    /* ── Pastel named palette (from Início + Premiação cards) ──────────
+    Each has a base fill, a darker ink for text on top, and a subtle
+     border for crisper card outlines. */
+    --card-blue-bg: #c9dbff;
+    --card-blue-ink: #1c2d52;
+    --card-blue-edge: #a9c3f5;
+
+    --card-pink-bg: #ffb8cc;
+    --card-pink-ink: #5a1f35;
+    --card-pink-edge: #f39ab3;
+
+    --card-coral-bg: #f49a9a;
+    --card-coral-ink: #5a1c1c;
+    --card-coral-edge: #e07c7c;
+
+    --card-yellow-bg: #fff27a;
+    --card-yellow-ink: #5a4a00;
+    --card-yellow-edge: #f3de4b;
+
+    --card-green-bg: #b7f0b1;
+    --card-green-ink: #133c16;
+    --card-green-edge: #8dd98a;
+
+    --card-mint-bg: #bfe3d6;
+    --card-mint-ink: #0f3d2f;
+    --card-mint-edge: #9bcfbe;
+
+    --card-violet-bg: #d4c7f7;
+    --card-violet-ink: #2d1f5a;
+    --card-violet-edge: #b7a5ea;
+
+    /* ── Hero gradient (used on header bands across screens) ───────── */
+    --hero-gradient: linear-gradient(
+        90deg,
+        #b8cff5 0%,
+        #c6d4f3 22%,
+        #dcd8ee 46%,
+        #ebd6e0 68%,
+        #f5dfc6 88%,
+        #f4e6c8 100%
+    );
+
+    /* ── Typography ───────────────────────────────────────────────────── */
+    --font-heading:
+        "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-body:
+        "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: "SFMono-Regular", ui-monospace, Menlo, monospace;
+
+    /* Type scale */
+    --ts-display: 40px;
+    --lh-display: 1.15;
+    --ts-h1: 28px;
+    --lh-h1: 1.2;
+    --ts-h2: 22px;
+    --lh-h2: 1.25;
+    --ts-h3: 18px;
+    --lh-h3: 1.3;
+    --ts-body: 14px;
+    --lh-body: 1.5;
+    --ts-body-lg: 16px;
+    --lh-body-lg: 1.55;
+    --ts-label: 13px;
+    --lh-label: 1.4;
+    --ts-caption: 12px;
+    --lh-caption: 1.4;
+
+    /* Weights */
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semi: 600;
+    --fw-bold: 700;
+
+    /* ── Spacing (4-step scale) ───────────────────────────────────────── */
+    --s-0: 0;
+    --s-1: 4px;
+    --s-2: 8px;
+    --s-3: 12px;
+    --s-4: 16px;
+    --s-5: 20px;
+    --s-6: 24px;
+    --s-7: 32px;
+    --s-8: 40px;
+    --s-9: 48px;
+    --s-10: 64px;
+
+    /* ── Radii ────────────────────────────────────────────────────────── */
+    --r-xs: 4px;
+    --r-sm: 6px;
+    --r-md: 10px;
+    --r-lg: 14px;
+    --r-xl: 20px;
+    --r-pill: 999px;
+
+    /* ── Elevation ────────────────────────────────────────────────────── */
+    --sh-0: none;
+    --sh-1: 0 1px 2px rgba(20, 23, 31, 0.06), 0 1px 1px rgba(20, 23, 31, 0.04);
+    --sh-2: 0 2px 6px rgba(20, 23, 31, 0.06), 0 4px 14px rgba(20, 23, 31, 0.06);
+    --sh-3: 0 8px 24px rgba(20, 23, 31, 0.1), 0 2px 6px rgba(20, 23, 31, 0.06);
+    --sh-4: 0 20px 60px rgba(20, 23, 31, 0.18);
+    --sh-focus: 0 0 0 3px var(--primary-ring);
+
+    /* ── Layout ───────────────────────────────────────────────────────── */
+    --nav-w: 64px;
+    --topbar-h: 72px;
+    --density-row: 48px; /* table row height (comfortable) */
+    --density-input: 40px; /* input height */
+}
+
+/* Compact density override */
+[data-density="compact"] {
+    --density-row: 36px;
+    --density-input: 32px;
+    --s-6: 18px;
+    --s-7: 24px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--s-4) var(--s-6);
+}
+
+header h1 {
+        font-size: var(--ts-h1);
+        line-height: var(--lh-h1);
+        font-weight: var(--fw-bold);
+        margin: 0;
+        white-space: nowrap;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--s-6); /* Usa o espaçamento do seu Design System */
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--ts-body);
+    line-height: var(--lh-body);
+    color: var(--ink-700);
+    background: var(--ink-50);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    margin: 0;
+    color: var(--ink-900);
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-size: var(--ts-h1);
+    line-height: var(--lh-h1);
+    font-weight: var(--fw-bold);
+}
+
+h2 {
+    font-size: var(--ts-h2);
+    line-height: var(--lh-h2);
+    font-weight: var(--fw-semi);
+}
+
+h3 {
+    font-size: var(--ts-h3);
+    line-height: var(--lh-h3);
+    font-weight: var(--fw-semi);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: var(--s-2);
+}
+
+.search-container input {
+    padding: var(--s-2) var(--s-3);
+    border: 1px solid var(--ink-200);
+    border-radius: var(--r-md);
+    font-size: var(--ts-body);
+    line-height: var(--lh-body);
+}
+
+.search-container input::placeholder {
+    color: var(--ink-400);
+    font-size: var(--ts-body);
+    line-height: var(--lh-body);
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: var(--sh-focus);
+}
+
+#botao-pesquisa:hover {
+    background: var(--primary-hover);
+}
+
+#botao-pesquisa:active {
+    background: var(--primary-press);
+}
+
+#botao-pesquisa:focus {
+    outline: none;
+}
+
+#botao-pesquisa {
+    padding: var(--s-2) var(--s-4);
+    background: var(--primary);
+    color: var(--primary-ink);
+    border: none;
+    border-radius: var(--r-md);
+    font-size: var(--ts-body);
+    line-height: var(--lh-body);
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    gap: var(--s-2);
+}
+
+.filtrar-container {
+    display:flex;
+    align-items: center;
+    gap: var(--s-2);
+}
+
+.filtrar-container input {
+    padding: var(--s-2) var(--s-3);
+    border: 1px solid var(--ink-200);
+    border-radius: var(--r-md);
+    font-size: var(--ts-body);
+    line-height: var(--lh-body);
+}
+
+.filtrar-container input::placeholder {
+    color: var(--ink-400);
+    font-size: var(--ts-body);
+    line-height: var(--lh-body);
+}
+
+.filtrar-container input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: var(--sh-focus);
+}
+
+#botao-filtrar:hover {
+    background: var(--primary-hover);
+}
+
+#botao-filtrar:active {
+    background: var(--primary-press);
+}
+
+#botao-filtrar:focus {
+    outline: none;
+}
+
+#botao-filtrar {
+    padding: var(--s-2) var(--s-4);
+    background: var(--primary);
+    color: var(--primary-ink);
+    border: none;
+    border-radius: var(--r-md);
+    font-size: var(--ts-body);
+    line-height: var(--lh-body);
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    gap: var(--s-2);
+}
+
+.container-table-agendados {
+    padding: var(--s-6);
+    background: var(--ink-50);
+    border-radius: var(--r-md);
+    box-shadow: var(--sh-1);
+    margin-bottom: var(--s-6);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-4);
+}
+
+.cabecalho{
+    --bs-table-bg: var(--brand-800);
+    --bs-table-color: var(--primary-ink);
+    font-size: var(--ts-body);
+    font-weight: var(--fw-medium);
+}
+
+.container{
+    min-height: 20px;
+    padding: var(--s-7) var(--s-6);
+    border-radius: var(--r-md);
+    background: var(--hero-gradient);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    box-shadow: var(--sh-1);
+    border-bottom: 1px solid var(--ink-200);
+    font-size: var(--ts-body);
+    line-height: var(--lh-body);    
+    color: var(--ink-700);
+    font-weight: var(--fw-medium);
+    letter-spacing: -0.01em;
+}
+
+img[src$=".svg"] {
+    width: 20px;
+    height: 20px;
+}
+
+img[src$="notificacoes.svg"] {
+    width: 24px;
+    height: 24px;
+}

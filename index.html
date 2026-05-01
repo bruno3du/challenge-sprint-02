@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/css/style.css" />
+    <title>Agendados</title>
+
+  </head>
+
+  <body>
+    <!-- Cabeçalho  -->
+    <header class="header">
+      <h1>Consultas</h1>
+
+      <div class="header-actions">
+        <div class="search-container">
+          <input type="text" placeholder="Pesquisar..." />
+          <button id="botao-pesquisa">Pesquisar</button>
+        </div>
+
+        <a href="#" target="_blank">
+          <img
+            src="src/assets/notificacoes.svg"
+            alt="Ir às Notificações"
+            width="40"
+            height="40"
+          />
+        </a>
+
+        <a href="#" target="_blank">
+          <img
+            src="src/assets/perfil.jpg"
+            alt="Ir ao Perfil"
+            width="40"
+            height="40"
+          />
+        </a>
+      </div>
+
+    </header>
+
+    <div class="container">
+      <!-- Container Faixa Azul -->
+      
+    </div>
+
+    <div class="container-table-agendados table-responsive">
+
+      <div class="filtrar-container">
+      <!-- Botão de Filtrar -->
+      <input type="text" placeholder="Filtrar" />
+      <button id="botao-filtrar">Filtrar</button>
+    </div>
+
+      <!-- Tabela de Agendados -->
+      <table class="table grid text-center">
+        <thead class="cabecalho">
+          <tr>
+            <th>Especialidade</th>
+            <th>Médico</th>
+            <th>Horário agendado</th>
+            <th>Status</th>
+            <th>Endereço</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cardiologia</td>
+            <td>Dr(a) Viviane Santos</td>
+            <td>28 de outubro, 10:00 - 11:00</td>
+            <td><span class="status agendado">Agendado</span></td>
+            <td>R. São tomas de aquino, 123 - Centro</td>
+            <td>
+              <a href="#" title="Abrir">
+                <img
+                  src="src/assets/abrir.svg"
+                  alt="Abrir"
+                  width="20"
+                  height="20"
+                />
+              </a>
+              <a href="#" title="Reagendar">
+                <img
+                  src="src/assets/reagendar.svg"
+                  alt="Reagendar"
+                  width="20"
+                  height="20"
+                />
+              </a>
+              <a href="#" title="Cancelar">
+                <img
+                  src="src/assets/cancelar.svg"
+                  alt="Cancelar"
+                  width="20"
+                  height="20"
+                />
+              </a>
+              <div class="mt-1">
+                <a href="#" title="Nova Consulta">
+                  <img
+                    src="src/assets/trocarHorario.svg"
+                    alt="Criar nova Consulta com este Profissional"
+                    width="20"
+                    height="20"
+                  />
+                </a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Psiquiatria</td>
+            <td>Dr(a) Otávio Silva</td>
+            <td>28 de outubro, 10:00 - 11:00</td>
+            <td><span class="status agendado">Cancelada</span></td>
+            <td>R. São tomas de aquino, 789 - Jardim</td>
+            <td>
+              <a href="#" title="Abrir">
+                <img
+                  src="src/assets/abrir.svg"
+                  alt="Abrir"
+                  width="20"
+                  height="20"
+                />
+              </a>
+              <a href="#" title="Reagendar">
+                <img
+                  src="src/assets/reagendar.svg"
+                  alt="Reagendar"
+                  width="20"
+                  height="20"
+                />
+              </a>
+              <a href="#" title="Cancelar">
+                <img
+                  src="src/assets/cancelar.svg"
+                  alt="Cancelar"
+                  width="20"
+                  height="20"
+                />
+              </a>
+              <div class="mt-1">
+                <a href="#" title="Nova Consulta">
+                  <img
+                    src="src/assets/trocarHorario.svg"
+                    alt="Criar nova Consulta com este Profissional"
+                    width="20"
+                    height="20"
+                  />
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
