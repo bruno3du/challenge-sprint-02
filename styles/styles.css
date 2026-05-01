@@ -1,0 +1,306 @@
+/* Design-system overrides on top of Bootstrap.
+   Layout/spacing/flex come from Bootstrap utility classes;
+   this file only customizes look-and-feel and adds component
+   visuals Bootstrap doesn't ship (nav rail, calendar grid, time row). */
+
+/* ── Bootstrap button overrides ───────────────────────────────────── */
+.btn {
+  --bs-btn-padding-y: 0;
+  --bs-btn-padding-x: var(--s-5);
+  height: var(--density-input);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  border-radius: var(--r-md);
+  font-family: var(--font-body);
+  font-size: var(--ts-body);
+  font-weight: var(--fw-semi);
+  white-space: nowrap;
+}
+.btn:focus-visible {
+  box-shadow: var(--sh-focus);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--primary);
+  --bs-btn-border-color: var(--primary);
+  --bs-btn-hover-bg: var(--primary-hover);
+  --bs-btn-hover-border-color: var(--primary-hover);
+  --bs-btn-active-bg: var(--primary-press);
+  --bs-btn-active-border-color: var(--primary-press);
+  --bs-btn-color: var(--primary-ink);
+  --bs-btn-hover-color: var(--primary-ink);
+}
+
+.btn-secondary {
+  --bs-btn-bg: var(--surface);
+  --bs-btn-border-color: var(--primary);
+  --bs-btn-color: var(--primary);
+  --bs-btn-hover-bg: var(--primary-soft);
+  --bs-btn-hover-border-color: var(--primary);
+  --bs-btn-hover-color: var(--primary);
+  --bs-btn-active-bg: var(--primary-soft);
+  --bs-btn-active-color: var(--primary);
+}
+
+.btn-icon {
+  width: var(--density-input);
+  padding: 0;
+  background: var(--surface);
+  color: var(--ink-600);
+  border: 1px solid var(--ink-200);
+}
+.btn-icon:hover {
+  background: var(--ink-100);
+  color: var(--ink-800);
+}
+.btn-ghost-icon {
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  color: var(--ink-700);
+}
+.btn-ghost-icon:hover { background: var(--ink-100); }
+
+/* ── Inputs / selects ─────────────────────────────────────────────── */
+.input,
+.select {
+  height: var(--density-input);
+  padding: 0 var(--s-4);
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  background: var(--ink-100);
+  font-family: var(--font-body);
+  font-size: var(--ts-body);
+  color: var(--ink-800);
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+.input::placeholder { color: var(--ink-400); }
+.input:hover, .select:hover { background: var(--ink-150); }
+.input:focus, .select:focus {
+  outline: none;
+  background: var(--surface);
+  border-color: var(--primary);
+  box-shadow: var(--sh-focus);
+}
+.select {
+  appearance: none;
+  padding-right: var(--s-8);
+}
+
+/* Wrapper that owns the animated chevron */
+.select-wrap {
+  position: relative;
+  display: inline-block;
+}
+.select-wrap .select { width: 100%; }
+.select-wrap::after {
+  content: "";
+  position: absolute;
+  right: var(--s-4);
+  top: 50%;
+  width: 12px;
+  height: 8px;
+  pointer-events: none;
+  background-color: var(--ink-500);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round'/></svg>") no-repeat center / contain;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round'/></svg>") no-repeat center / contain;
+  transform: translateY(-50%) rotateX(0deg);
+  transform-origin: center;
+  transition: transform 0.22s ease;
+}
+.select-wrap:focus-within::after {
+  transform: translateY(-50%) rotateX(180deg);
+}
+.input-search {
+  width: 280px;
+  height: 40px;
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  border: 1px solid var(--ink-200);
+  padding-left: 40px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none' stroke='%236b7186' stroke-width='1.6' stroke-linecap='round'><circle cx='7' cy='7' r='5'/><path d='M11 11l3 3'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 14px center;
+}
+.cal-select-month { width: 140px; }
+.cal-select-year { width: 100px; }
+
+/* ── Hero band ────────────────────────────────────────────────────── */
+.hero-band {
+  height: 120px;
+  border-radius: var(--r-lg);
+  background: var(--hero-gradient);
+}
+
+/* ── Counter pill (used inside calendar pills) ────────────────────── */
+.badge-count {
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: var(--ink-800);
+  font-size: 10px;
+  font-weight: var(--fw-bold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Avatar ───────────────────────────────────────────────────────── */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--fw-semi);
+  font-size: 14px;
+  color: #fff;
+  background: var(--ink-200);
+  overflow: hidden;
+}
+.avatar-gradient { background: linear-gradient(135deg, #5569a8, #8396c4); }
+
+/* ── Topbar / muted ink helper ────────────────────────────────────── */
+.topbar { height: var(--topbar-h); }
+.text-muted-ink { color: var(--ink-500); }
+
+/* ── Nav rail ─────────────────────────────────────────────────────── */
+.nav-rail {
+  width: var(--nav-w);
+  background: var(--surface);
+  border-right: 1px solid var(--ink-150);
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+}
+.nav-brand {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 16px;
+}
+.nav-item {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-500);
+  text-decoration: none;
+  font-size: 18px;
+  transition: background 0.12s, color 0.12s;
+}
+.nav-item:hover { background: var(--ink-100); color: var(--ink-800); }
+.nav-item.active { background: var(--primary-soft); color: var(--primary); }
+
+/* ── Calendar grid (CSS Grid — Bootstrap doesn't ship a 7-col grid) */
+.cal-head,
+.cal-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.cal-head { background: var(--brand-800); }
+.cal-head-cell {
+  padding: var(--s-3);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: var(--fw-semi);
+  font-size: 13px;
+  text-align: center;
+}
+.cal-cell {
+  border-right: 1px solid var(--ink-150);
+  border-bottom: 1px solid var(--ink-150);
+  padding: var(--s-3);
+  min-height: 92px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+.cal-cell:hover { background: var(--ink-50); }
+.cal-cell.is-muted { opacity: 0.4; }
+.cal-cell:nth-child(7n) { border-right: none; }
+.cal-body > .cal-cell:nth-last-child(-n + 7) { border-bottom: none; }
+.cal-num {
+  font-size: 13px;
+  font-weight: var(--fw-medium);
+  color: var(--ink-700);
+}
+.cal-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card-blue-bg);
+  color: var(--card-blue-ink);
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+  font-size: 11px;
+  font-weight: var(--fw-semi);
+}
+.cal-pill:hover { filter: brightness(0.96); }
+
+/* ── Schedule modal ───────────────────────────────────────────────── */
+.schedule-modal { max-width: 420px; }
+
+.modal-backdrop.show {
+  --bs-backdrop-opacity: 0.35;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.schedule-card { border-radius: var(--r-lg); }
+.schedule-title { font-size: 20px; }
+
+/* Time-slot rows (only the visuals; flex/padding/gap come from Bootstrap utilities in HTML) */
+.time-row {
+  border: 1.5px solid var(--ink-200);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+}
+.time-row:hover { background: var(--ink-50); }
+.time-row input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.time-radio {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--r-pill);
+  border: 2px solid var(--ink-300);
+  position: relative;
+  flex-shrink: 0;
+}
+.time-row:has(input:checked) {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+.time-row:has(input:checked) .time-radio { border-color: var(--primary); }
+.time-row:has(input:checked) .time-radio::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: var(--r-pill);
+  background: var(--primary);
+}
+.time-label {
+  font-weight: var(--fw-semi);
+  font-size: 14px;
+  color: var(--ink-800);
+}
+.time-doctor { color: var(--ink-500); }
