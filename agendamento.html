@@ -3,82 +3,564 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/tela.css" />
-  </head>
-  <body>
-    <main class="container">
-      <section class="login-section">
-        <div class="login-box">
-          <h1>Bem-vindo <span aria-hidden="true">&#128075;</span></h1>
-          <p class="subtitle">
-            Seja bem-vindo(a) &agrave; sua &aacute;rea exclusiva
-          </p>
-
-          <form id="login-form" class="needs-validation" novalidate>
-            <div class="input-group">
-              <label for="email">Email</label>
-              <input
-                id="email"
-                class="form-control"
-                name="email"
-                type="email"
-                placeholder="Example@email.com"
-                autocomplete="email"
-              />
-              <small class="field-error"></small>
-            </div>
-
-            <div class="input-group">
-              <label for="password">Password</label>
-              <input
-                id="password"
-                class="form-control"
-                name="password"
-                type="password"
-                placeholder="At least 8 characters"
-                autocomplete="current-password"
-              />
-              <small class="field-error"></small>
-            </div>
-
-            <button class="btn btn-primary" type="submit">Login</button>
-            <p class="form-message" role="status" aria-live="polite"></p>
-          </form>
-
-          <p class="register">
-            N&atilde;o tem conta? <a href="tela_registro.html">Criar conta</a>
-          </p>
-
-          <p class="footer">&copy; 2023 ALL RIGHTS RESERVED</p>
-        </div>
-      </section>
-
-      <section class="image-section">
-        <img
-          src="assets/img/992dfb2830a38887b0559dfb619dc9eba940a887.jpg"
-          alt="Arranjo de flores em fundo escuro"
-        />
-      </section>
-    </main>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
-    <script src="/scripts/script.js"></script>
+    <link rel="stylesheet" href="./styles/tokens.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+
+    <title>Calendário</title>
+  </head>
+
+  <body>
+    <div class="d-flex min-vh-100">
+      <!-- Side nav rail -->
+      <aside class="nav-rail d-flex flex-column align-items-center gap-2 py-3">
+        <div class="nav-brand mb-3">E</div>
+        <a
+          class="nav-item active"
+          href="#"
+          title="Dashboard"
+          aria-label="Dashboard"
+        >
+          <i class="bi bi-grid-fill"></i>
+        </a>
+        <a class="nav-item" href="#" title="Histórico" aria-label="Histórico">
+          <i class="bi bi-clock-history"></i>
+        </a>
+        <a class="nav-item" href="#" title="Pessoas" aria-label="Pessoas">
+          <i class="bi bi-people"></i>
+        </a>
+        <a class="nav-item" href="#" title="Mensagens" aria-label="Mensagens">
+          <i class="bi bi-chat-left"></i>
+        </a>
+        <a
+          class="nav-item"
+          href="#"
+          title="Configurações"
+          aria-label="Configurações"
+        >
+          <i class="bi bi-gear"></i>
+        </a>
+      </aside>
+
+      <main class="flex-fill d-flex flex-column min-w-0">
+        <!-- Topbar -->
+        <header class="topbar d-flex align-items-center gap-3 px-5">
+          <div class="flex-grow-1">
+            <h1 class="m-0">Calendário</h1>
+            <div class="text-muted-ink small">Terça, 17 de julho de 2026</div>
+          </div>
+          <input
+            type="text"
+            class="input input-search"
+            placeholder="Pesquisar"
+            aria-label="Pesquisar"
+          />
+          <button
+            type="button"
+            class="btn btn-icon rounded-pill"
+            aria-label="Notificações"
+          >
+            <i class="bi bi-bell"></i>
+          </button>
+          <div class="avatar avatar-gradient">B</div>
+        </header>
+
+        <!-- Page body -->
+        <div class="px-5 pb-5">
+          <!-- Hero band (gradient strip) -->
+          <section class="hero-band mb-4"></section>
+
+          <!-- Filter / period row -->
+          <div class="d-flex align-items-center justify-content-between mb-4">
+            <button type="button" class="btn btn-secondary">
+              <i class="bi bi-funnel"></i> Filtrar
+            </button>
+            <div class="d-flex align-items-center gap-3">
+              <label class="form-label m-0 small text-muted-ink" for="cal-month"
+                >Mês</label
+              >
+              <div class="select-wrap cal-select-month">
+                <select id="cal-month" class="select">
+                  <option>Julho</option>
+                  <option>Agosto</option>
+                  <option>Setembro</option>
+                  <option>Outubro</option>
+                </select>
+              </div>
+              <label class="form-label m-0 small text-muted-ink" for="cal-year"
+                >Ano</label
+              >
+              <div class="select-wrap cal-select-year">
+                <select id="cal-year" class="select">
+                  <option>2026</option>
+                  <option>2027</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calendar table -->
+          <div
+            class="cal-table border rounded overflow-hidden bg-white"
+            id="cal-table"
+          >
+            <div class="cal-head">
+              <div class="cal-head-cell">Dom</div>
+              <div class="cal-head-cell">Seg</div>
+              <div class="cal-head-cell">Ter</div>
+              <div class="cal-head-cell">Qua</div>
+              <div class="cal-head-cell">Qui</div>
+              <div class="cal-head-cell">Sex</div>
+              <div class="cal-head-cell">Sáb</div>
+            </div>
+
+            <div class="cal-body">
+              <div class="cal-cell is-muted">
+                <div class="cal-num">28</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell is-muted">
+                <div class="cal-num">29</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell is-muted">
+                <div class="cal-num">30</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">1 Jul</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">2</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">3</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">4</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+
+              <div class="cal-cell">
+                <div class="cal-num">5</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">6</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">7</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">8</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">9</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">10</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">11</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+
+              <div class="cal-cell">
+                <div class="cal-num">12</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">13</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">14</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">15</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">16</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">17</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">18</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+
+              <div class="cal-cell">
+                <div class="cal-num">19</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">20</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">21</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">22</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">23</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">24</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">25</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+
+              <div class="cal-cell">
+                <div class="cal-num">26</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">27</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">28</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">29</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">30</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell">
+                <div class="cal-num">31</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+              <div class="cal-cell is-muted">
+                <div class="cal-num">1 Ago</div>
+                <div class="cal-pill">
+                  <span>Clínica</span><span class="badge-count">1</span>
+                </div>
+                <div class="cal-pill">
+                  <span>Dental</span><span class="badge-count">3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Schedule Modal -->
+    <div
+      class="modal fade"
+      id="scheduleModal"
+      tabindex="-1"
+      aria-labelledby="scheduleModalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered schedule-modal">
+        <div class="modal-content schedule-card border-0 p-4 shadow-lg">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <h2 id="scheduleModalTitle" class="schedule-title m-0">
+              Agendar horário
+            </h2>
+            <button
+              type="button"
+              class="btn btn-icon btn-ghost-icon"
+              data-bs-dismiss="modal"
+              aria-label="Fechar"
+            >
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+          <p class="text-muted-ink small mb-4">Horários disponíveis</p>
+
+          <div
+            class="d-flex flex-column gap-2 mb-4"
+            role="radiogroup"
+            aria-label="Horários disponíveis"
+          >
+            <label
+              class="time-row d-flex align-items-center gap-3 p-3 rounded m-0"
+            >
+              <input type="radio" name="schedule-time" checked />
+              <span class="time-radio"></span>
+              <span class="time-label">13h – 14h</span>
+              <span class="time-doctor ms-auto small">Dr. Lúcio</span>
+            </label>
+            <label
+              class="time-row d-flex align-items-center gap-3 p-3 rounded m-0"
+            >
+              <input type="radio" name="schedule-time" />
+              <span class="time-radio"></span>
+              <span class="time-label">13h – 14h</span>
+              <span class="time-doctor ms-auto small">Dra. Maria</span>
+            </label>
+            <label
+              class="time-row d-flex align-items-center gap-3 p-3 rounded m-0"
+            >
+              <input type="radio" name="schedule-time" />
+              <span class="time-radio"></span>
+              <span class="time-label">14h – 15h</span>
+              <span class="time-doctor ms-auto small">Dr. Silva</span>
+            </label>
+            <label
+              class="time-row d-flex align-items-center gap-3 p-3 rounded m-0"
+            >
+              <input type="radio" name="schedule-time" />
+              <span class="time-radio"></span>
+              <span class="time-label">15h – 16h</span>
+              <span class="time-doctor ms-auto small">Dra. Maria</span>
+            </label>
+            <label
+              class="time-row d-flex align-items-center gap-3 p-3 rounded m-0"
+            >
+              <input type="radio" name="schedule-time" />
+              <span class="time-radio"></span>
+              <span class="time-label">16h – 17h</span>
+              <span class="time-doctor ms-auto small">Dr. Reis</span>
+            </label>
+            <label
+              class="time-row d-flex align-items-center gap-3 p-3 rounded m-0"
+            >
+              <input type="radio" name="schedule-time" />
+              <span class="time-radio"></span>
+              <span class="time-label">17h – 18h</span>
+              <span class="time-doctor ms-auto small">Dra. Maria</span>
+            </label>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-6 d-grid">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+            </div>
+            <div class="col-6 d-grid">
+              <button type="button" class="btn btn-primary">Agendar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const modal = new bootstrap.Modal(
+          document.getElementById("scheduleModal"),
+        );
+        document.getElementById("cal-table").addEventListener("click", (e) => {
+          if (e.target.closest(".cal-pill, .cal-cell")) modal.show();
+        });
+      });
+    </script>
   </body>
 </html>

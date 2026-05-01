@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/tela.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="login-section">
+        <div class="login-box">
+          <h1>Bem-vindo <span aria-hidden="true">&#128075;</span></h1>
+          <p class="subtitle">
+            Seja bem-vindo(a) &agrave; sua &aacute;rea exclusiva
+          </p>
+
+          <form id="login-form" class="needs-validation" novalidate>
+            <div class="input-group">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                class="form-control"
+                name="email"
+                type="email"
+                placeholder="Example@email.com"
+                autocomplete="email"
+              />
+              <small class="field-error"></small>
+            </div>
+
+            <div class="input-group">
+              <label for="password">Password</label>
+              <input
+                id="password"
+                class="form-control"
+                name="password"
+                type="password"
+                placeholder="At least 8 characters"
+                autocomplete="current-password"
+              />
+              <small class="field-error"></small>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Login</button>
+            <p class="form-message" role="status" aria-live="polite"></p>
+          </form>
+
+          <p class="register">
+            N&atilde;o tem conta? <a href="tela_registro.html">Criar conta</a>
+          </p>
+
+          <p class="footer">&copy; 2023 ALL RIGHTS RESERVED</p>
+        </div>
+      </section>
+
+      <section class="image-section">
+        <img
+          src="assets/img/992dfb2830a38887b0559dfb619dc9eba940a887.jpg"
+          alt="Arranjo de flores em fundo escuro"
+        />
+      </section>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/scripts/script.js"></script>
+  </body>
+</html>
