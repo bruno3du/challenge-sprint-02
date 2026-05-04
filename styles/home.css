@@ -1,0 +1,597 @@
+/* Engagement — Design System Tokens
+   Abstracted from the Figma layouts (Login, Cadastro, Início, Calendário,
+   Agendados, Premiação, Profile). Cleaned-up, token-first rewrite. */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap");
+
+:root {
+    /* ── Brand / primary ────────────────────────────────────────────────
+     The dominant blue from buttons + table header. */
+    --brand-50: #eef3ff;
+    --brand-100: #dbe5ff;
+    --brand-200: #b8caff;
+    --brand-300: #8fabff;
+    --brand-400: #6c8dfa;
+    --brand-500: #4f7af0; /* buttons / links */
+    --brand-600: #3e67e0; /* hover */
+    --brand-700: #2f52b5;
+    --brand-800: #2a3f7a; /* table header / dark nav */
+    --brand-900: #1e2d59;
+
+    --primary: var(--brand-500);
+    --primary-hover: var(--brand-600);
+    --primary-press: var(--brand-700);
+    --primary-ink: #ffffff;
+    --primary-soft: var(--brand-50);
+    --primary-ring: rgba(79, 122, 240, 0.28);
+
+    /* ── Neutrals ─────────────────────────────────────────────────────── */
+    --ink-900: #14171f; /* page titles */
+    --ink-800: #1f2430;
+    --ink-700: #2e3442; /* body strong */
+    --ink-600: #4a5164; /* body */
+    --ink-500: #6b7186; /* meta / labels */
+    --ink-400: #9097a8; /* placeholder */
+    --ink-300: #c4c9d4; /* borders strong */
+    --ink-200: #e2e5ec; /* borders */
+    --ink-150: #eceff4;
+    --ink-100: #f3f5f8; /* input fill */
+    --ink-50: #f7f8fb; /* page bg */
+    --surface: #ffffff;
+
+    /* ── Semantic ─────────────────────────────────────────────────────── */
+    --success-500: #22b573;
+    --success-50: #e7f7ee;
+    --warning-500: #e8a93a;
+    --warning-50: #fdf3df;
+    --danger-500: #e54d5a;
+    --danger-50: #fdecee;
+    --info-500: #3c9ae0;
+    --info-50: #e5f2fb;
+
+    /* ── Pastel named palette (from Início + Premiação cards) ──────────
+     Each has a base fill, a darker ink for text on top, and a subtle
+     border for crisper card outlines. */
+    --card-blue-bg: #c9dbff;
+    --card-blue-ink: #1c2d52;
+    --card-blue-edge: #a9c3f5;
+
+    --card-pink-bg: #ffb8cc;
+    --card-pink-ink: #5a1f35;
+    --card-pink-edge: #f39ab3;
+
+    --card-coral-bg: #f49a9a;
+    --card-coral-ink: #5a1c1c;
+    --card-coral-edge: #e07c7c;
+
+    --card-yellow-bg: #fff27a;
+    --card-yellow-ink: #5a4a00;
+    --card-yellow-edge: #f3de4b;
+
+    --card-green-bg: #b7f0b1;
+    --card-green-ink: #133c16;
+    --card-green-edge: #8dd98a;
+
+    --card-mint-bg: #bfe3d6;
+    --card-mint-ink: #0f3d2f;
+    --card-mint-edge: #9bcfbe;
+
+    --card-violet-bg: #d4c7f7;
+    --card-violet-ink: #2d1f5a;
+    --card-violet-edge: #b7a5ea;
+
+    /* ── Hero gradient (used on header bands across screens) ───────── */
+    --hero-gradient: linear-gradient(
+        90deg,
+        #b8cff5 0%,
+        #c6d4f3 22%,
+        #dcd8ee 46%,
+        #ebd6e0 68%,
+        #f5dfc6 88%,
+        #f4e6c8 100%
+    );
+
+    /* ── Typography ───────────────────────────────────────────────────── */
+    --font-heading:
+        "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-body:
+        "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: "SFMono-Regular", ui-monospace, Menlo, monospace;
+
+    /* Type scale */
+    --ts-display: 40px;
+    --lh-display: 1.15;
+    --ts-h1: 28px;
+    --lh-h1: 1.2;
+    --ts-h2: 22px;
+    --lh-h2: 1.25;
+    --ts-h3: 18px;
+    --lh-h3: 1.3;
+    --ts-body: 14px;
+    --lh-body: 1.5;
+    --ts-body-lg: 16px;
+    --lh-body-lg: 1.55;
+    --ts-label: 13px;
+    --lh-label: 1.4;
+    --ts-caption: 12px;
+    --lh-caption: 1.4;
+
+    /* Weights */
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semi: 600;
+    --fw-bold: 700;
+
+    /* ── Spacing (4-step scale) ───────────────────────────────────────── */
+    --s-0: 0;
+    --s-1: 4px;
+    --s-2: 8px;
+    --s-3: 12px;
+    --s-4: 16px;
+    --s-5: 20px;
+    --s-6: 24px;
+    --s-7: 32px;
+    --s-8: 40px;
+    --s-9: 48px;
+    --s-10: 64px;
+
+    /* ── Radii ────────────────────────────────────────────────────────── */
+    --r-xs: 4px;
+    --r-sm: 6px;
+    --r-md: 10px;
+    --r-lg: 14px;
+    --r-xl: 20px;
+    --r-pill: 999px;
+
+    /* ── Elevation ────────────────────────────────────────────────────── */
+    --sh-0: none;
+    --sh-1: 0 1px 2px rgba(20, 23, 31, 0.06), 0 1px 1px rgba(20, 23, 31, 0.04);
+    --sh-2: 0 2px 6px rgba(20, 23, 31, 0.06), 0 4px 14px rgba(20, 23, 31, 0.06);
+    --sh-3: 0 8px 24px rgba(20, 23, 31, 0.1), 0 2px 6px rgba(20, 23, 31, 0.06);
+    --sh-4: 0 20px 60px rgba(20, 23, 31, 0.18);
+    --sh-focus: 0 0 0 3px var(--primary-ring);
+
+    /* ── Layout ───────────────────────────────────────────────────────── */
+    --nav-w: 64px;
+    --topbar-h: 72px;
+    --density-row: 48px; /* table row height (comfortable) */
+    --density-input: 40px; /* input height */
+}
+
+/* Compact density override */
+[data-density="compact"] {
+    --density-row: 36px;
+    --density-input: 32px;
+    --s-6: 18px;
+    --s-7: 24px;
+}
+
+/* ── Base reset ────────────────────────────────────────────────────── */
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: var(--font-body);
+    font-size: var(--ts-body);
+    line-height: var(--lh-body);
+    color: var(--ink-700);
+    background: var(--ink-150);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    margin: 0;
+    color: var(--ink-900);
+    letter-spacing: -0.01em;
+}
+h1 {
+    font-size: var(--ts-h1);
+    line-height: var(--lh-h1);
+    font-weight: var(--fw-bold);
+}
+h2 {
+    font-size: var(--ts-h2);
+    line-height: var(--lh-h2);
+    font-weight: var(--fw-semi);
+}
+h3 {
+    font-size: var(--ts-h3);
+    line-height: var(--lh-h3);
+    font-weight: var(--fw-semi);
+}
+#title-page{
+      font-size: 40px;
+  font-weight: bold;
+  margin-left: 30px;
+  align-self: flex-start;
+}
+#p-header {
+  margin: 0 0 12px 30px; /* cola mais perto do título */
+  color: var(--ink-600);
+}
+.main{
+max-width: 900px;
+  margin: 0 auto;
+  }     
+.nav {
+  width: var(--nav-w);
+  background: var(--primary-ink);
+  color: var(--primary-ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--s-6);
+  box-shadow: var(--sh-2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
+
+.content {
+  margin-left: var(--nav-w);
+  padding: var(--s-6);
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav li {
+  margin: var(--s-4) 0;
+}
+
+.nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--density-input);
+  height: var(--density-input);
+  border-radius: var(--r-pill);
+  color: var(--primary-ink);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.nav a:hover {
+  background: var(--primary-hover);
+}
+.card-consulta {
+  background: var(--card-blue-bg);
+  margin-left: 20px;
+  color: var(--card-blue-ink);
+  border: 1px solid var(--card-blue-edge);
+  padding: var(--s-4);
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-1);
+}
+.contenth2 {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+}
+.opcoes-consulta {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 30px;
+  gap: var(--s-6);
+  margin: var(--s-7) 0;
+}
+.opcoes {
+
+}
+
+#card-consulta,
+#card-cirurgia,
+#card-odontologia,
+#card-exames {
+  display: block;
+  width: 730px;
+  height: 120px;
+  margin-left: 60px;
+  margin-bottom: 30px;
+  padding: var(--s-5);
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-1);
+  font-weight: var(--fw-semi);
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  text-align: left
+}
+
+#card-consulta {
+  font-size: 20px;
+  background-color: var(--card-blue-bg);
+  color: var(--card-blue-ink);
+  border: 1px solid var(--card-blue-edge);
+  width: auto;
+}
+#card-cirurgia {
+  font-size: 20px;
+  background-color: var(--card-pink-bg);
+  color: var(--card-yellow-ink);
+  border: 1px solid var(--card-pink-edge);
+  justify-content: flex-end;
+  margin-right: 60px;
+  width: auto;
+}
+#card-odontologia {
+  font-size: 20px;
+  background-color: var(--card-yellow-bg);
+  border: 1px solid var(--card-yellow-edge);
+  color: var(--card-pink-ink);
+    margin-left: 60px;
+  width: auto;
+  }
+#card-exames {
+    font-size: 20px;
+  background-color: var(--card-green-bg);
+  color: var(--card-green-ink);
+  border: 1px solid var(--card-green-edge);
+  justify-content: flex-end;
+  margin-right: 60px;
+  width: auto;
+}
+
+#card-consulta:hover,
+#card-cirurgia:hover,
+#card-odontologia:hover,
+#card-exames:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-2);
+  opacity: 0.95;
+}
+
+#card-consulta:active,
+#card-cirurgia:active,
+#card-odontologia:active,
+#card-exames:active {
+  transform: translateY(1px);
+  box-shadow: var(--sh-1);
+}
+.opcoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-6);
+  margin: 10px, 20px;
+}
+
+.opcoes button {
+  height: 120px;
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-1);
+  font-weight: var(--fw-semi);
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+.card-icon {
+  width: 50px;
+  height: 50px;
+  margin-left: 600px;
+}
+.card-icon-heart {
+  width: 72px;
+  height: 70px;
+  margin-left: 600px;
+}
+.card-icon-potion {
+  width: 72px;
+  height: 70px;
+  margin-left: 600px;
+}
+#content-fundo {
+  border: 2px solid var(--primary-ink);
+  border-radius: 10px;
+  margin: 30px;
+  padding: 0 30px;
+  background-color: var(--primary-ink);
+  width: auto;
+  height: 800px;
+  position: relative;
+}
+
+.search-bar {
+  align-self: flex-start;
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  background: var(--hero-gradient);
+  border-radius: var(--r-md);
+  padding: 0 var(--s-4);
+  height: var(--density-input);
+  box-shadow: var(--sh-1);
+  width: 40%;
+  
+  height: 40px;
+  overflow: hidden;
+  transition: width 0.3s ease, margin 0.3s ease, height 0.3s ease;
+}
+
+.search-bar:focus-within {
+  width: 90%;
+  margin: 0 30px;
+  height: 80px;
+}
+
+
+
+.search-bar i {
+  color: var(--ink-600);
+  margin-right: 30px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  flex: 1;
+  background: transparent;
+  font-size: var(--ts-body-lg);
+  color: var(--ink-700);
+}
+
+.search-icon {
+
+  width: 72px;
+  height: 70px;
+}
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 30px 0 30px;
+  box-sizing: border-box;
+}
+.especialidades {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px 60px;
+}
+
+.lado {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lado.masculino .card {
+  background-color: var(--card-blue-bg);
+  color: var(--card-blue-ink);
+  border: 1px solid var(--card-blue-edge);
+  border-radius: var(--r-md);
+  padding: var(--s-4);
+  box-shadow: var(--sh-1);
+  cursor: pointer;
+  font-weight: var(--fw-semi);
+  transition: all 0.2s ease;
+}
+
+.lado.feminino .card {
+  background-color: var(--card-pink-bg);
+  color: var(--card-pink-ink);
+  border: 1px solid var(--card-pink-edge);
+  border-radius: var(--r-md);
+  padding: var(--s-4);
+  box-shadow: var(--sh-1);
+  cursor: pointer;
+  font-weight: var(--fw-semi);
+  transition: all 0.2s ease;
+  margin-left: 60px;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-2);
+  opacity: 0.95;
+}
+
+.card:active {
+  transform: translateY(1px);
+  box-shadow: var(--sh-1);
+}
+.header-icons {
+  display: flex;
+  gap: 20px;
+  margin-left: auto;
+}
+
+.icon-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--ink-100);
+  box-shadow: var(--sh-1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: var(--primary-soft);
+  transform: translateY(-2px);
+}
+
+.notification-btn i {
+  color: var(--ink-700);
+  font-size: 20px;
+}
+
+.profile-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  background: var(--ink-100);
+  box-shadow: var(--sh-1);
+  cursor: pointer;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px; /* define o espaçamento entre os ícones */
+  padding: 0;
+  margin: 0;
+}
+.topbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* joga tudo para a direita */
+  gap: 20px;                 /* espaço entre barra e ícones */
+  width: 100%;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+.topbar-search {
+  flex: 1;                        /* ocupa espaço disponível */
+  display: flex;
+  align-items: center;
+  background: var(--hero-gradient);
+  border-radius: var(--r-md);
+  padding: 0 var(--s-4);
+  height: var(--density-input);
+  box-shadow: var(--sh-1);
+  max-width: 400px;               /* limite opcional */
+}
+
+.topbar-search input {
+  border: none;
+  outline: none;
+  flex: 1;
+  background: transparent;
+  font-size: var(--ts-body-lg);
+  color: var(--ink-700);
+}
+
+
+
