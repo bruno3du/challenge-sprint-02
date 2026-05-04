@@ -109,7 +109,13 @@ function initLoginForm() {
       return;
     }
 
-    setFormMessage(form, "Login validado com sucesso.", "success");
+    if (loginUser(email.value, password.value)) {
+      setFormMessage(form, "Login validado com sucesso.", "success");
+
+      window.location.href = "/consultas.html";
+    } else {
+      setFormMessage(form, "Email ou senha incorretos.", "error");
+    }
   });
 }
 
@@ -162,9 +168,49 @@ function initRegisterForm() {
     }
 
     setFormMessage(form, "Cadastro validado com sucesso.", "success");
+    console.log({
+      nome: firstName.value,
+      sobrenome: lastName.value,
+      email: email.value,
+      senha: password.value,
+      cpf: cpf.value,
+      endereco: address.value,
+      plano: plan.value,
+    });
+
+    registerUser({
+      nome: firstName.value,
+      sobrenome: lastName.value,
+      email: email.value,
+      senha: password.value,
+      cpf: cpf.value,
+      endereco: address.value,
+      plano: plan.value,
+    });
+
     form.reset();
   });
 }
 
 initLoginForm();
 initRegisterForm();
+
+function registerUser(user) {
+  save("usuarios", [...(get("usuarios") || []), user]);
+}
+
+function loginUser(email, password) {
+  const usuarios = get("usuarios");
+  const usuario = usuarios.find((usuario) => usuario.email === email);
+  if (!usuario) {
+    return false;
+  }
+
+  if (usuario.senha !== password) {
+    return false;
+  }
+
+  save("login", usuario);
+
+  return true;
+}
