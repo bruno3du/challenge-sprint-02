@@ -20,50 +20,107 @@
     ></script>
     <link rel="stylesheet" href="styles/tokens.css" />
     <link rel="stylesheet" href="styles/consultas.css" />
-    <title>Agendados</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+
+  <title>Consultas</title>
   </head>
 
   <body>
-    <!-- Cabeçalho  -->
-    <header class="header">
-      <h1>Consultas</h1>
-
-      <div class="header-actions">
-        <div class="search-container">
-          <input type="text" placeholder="Pesquisar..." />
-          <button id="botao-pesquisa">Pesquisar</button>
-        </div>
-
-        <a href="#" target="_blank">
-          <img
-            src="assets/notificacoes.svg"
-            alt="Ir às Notificações"
-            width="40"
-            height="40"
-          />
+    <div class="d-flex min-vh-100">
+      <!-- Side nav rail -->
+      <aside class="nav-rail d-flex flex-column align-items-center gap-2 py-3">
+        <div class="nav-brand mb-3">E</div>
+        <a
+          class="nav-item active"
+          href="#"
+          title="Dashboard"
+          aria-label="Dashboard"
+        >
+          <i class="bi bi-grid-fill"></i>
         </a>
-
-        <a href="#" target="_blank">
-          <img
-            src="assets/perfil.jpg"
-            alt="Ir ao Perfil"
-            width="40"
-            height="40"
-          />
+        <a class="nav-item" href="#" title="Histórico" aria-label="Histórico">
+          <i class="bi bi-clock-history"></i>
         </a>
-      </div>
-    </header>
+        <a class="nav-item" href="#" title="Pessoas" aria-label="Pessoas">
+          <i class="bi bi-people"></i>
+        </a>
+        <a class="nav-item" href="#" title="Mensagens" aria-label="Mensagens">
+          <i class="bi bi-chat-left"></i>
+        </a>
+        <a
+          class="nav-item"
+          href="#"
+          title="Configurações"
+          aria-label="Configurações"
+        >
+          <i class="bi bi-gear"></i>
+        </a>
+      </aside>
 
-    <div class="container">
-      <!-- Container Faixa Azul -->
-    </div>
+      <main class="flex-fill d-flex flex-column min-w-0">
+        <!-- Topbar -->
+        <header class="topbar d-flex align-items-center gap-3 px-5">
+          <div class="flex-grow-1">
+            <h1 class="m-0">Consultas</h1>
+            <div class="text-muted-ink small">Terça, 17 de julho de 2026</div>
+          </div>
+          <input
+            type="text"
+            class="input input-search"
+            placeholder="Pesquisar"
+            aria-label="Pesquisar"
+          />
+          <button
+            type="button"
+            class="btn btn-icon rounded-pill"
+            aria-label="Notificações"
+          >
+            <i class="bi bi-bell"></i>
+          </button>
+          <div class="avatar avatar-gradient">B</div>
+        </header>
 
-    <div class="container-table-agendados table-responsive">
+        <!-- Page body -->
+        <div class="px-5 pb-5">
+          <!-- Hero band (gradient strip) -->
+          <section class="hero-band mb-4"></section>
+
+          <!-- Filter / period row -->
+          <div class="d-flex align-items-center justify-content-between mb-4">
+            <button type="button" class="btn btn-secondary">
+              <i class="bi bi-funnel"></i> Filtrar
+            </button>
+            <div class="d-flex align-items-center gap-3">
+              <label class="form-label m-0 small text-muted-ink" for="cal-month"
+                >Mês</label
+              >
+              <div class="select-wrap cal-select-month">
+                <select id="cal-month" class="select">
+                  <option>Julho</option>
+                  <option>Agosto</option>
+                  <option>Setembro</option>
+                  <option>Outubro</option>
+                </select>
+              </div>
+              <label class="form-label m-0 small text-muted-ink" for="cal-year"
+                >Ano</label
+              >
+              <div class="select-wrap cal-select-year">
+                <select id="cal-year" class="select">
+                  <option>2026</option>
+                  <option>2027</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+    <!-- <div class="container-table-agendados table-responsive">
       <div class="filtrar-container">
-        <!-- Botão de Filtrar -->
+        <-- Botão de Filtrar --
         <input type="text" placeholder="Filtrar" />
         <button id="botao-filtrar">Filtrar</button>
-      </div>
+      </div> -->
 
       <!-- Tabela de Agendados -->
       <table class="table grid text-center">
