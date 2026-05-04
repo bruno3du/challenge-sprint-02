@@ -1,5 +1,3 @@
-
-
 header {
     display: flex;
     align-items: center;
@@ -14,14 +12,16 @@ header h1 {
         margin: 0;
         white-space: nowrap;
 }
-
+/*
 .header-actions {
     display: flex;
     align-items: center;
-    gap: var(--s-6); /* Usa o espaçamento do seu Design System */
-}
+    gap: var(--s-6);
+    }
+    */ /* Usa o espaçamento do seu Design System */
 
 
+/*
 .search-container {
     display: flex;
     align-items: center;
@@ -125,27 +125,40 @@ header h1 {
     align-items: center;
     gap: var(--s-2);
 }
-
+*/
 .container-table-agendados {
-    padding: var(--s-6);
-    background: var(--ink-50);
+    background: var(--surface);
     border-radius: var(--r-md);
-    box-shadow: var(--sh-1);
     margin-bottom: var(--s-6);
     overflow: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: var(--s-4);
+    font-size: 13px;
+    line-height: var(--lh-body);
+    color: var(--ink-700);
+    font-weight: var(--fw-medium);
+    letter-spacing: -0.01em;
+    border: 1px solid var(--ink-200);
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
 .cabecalho{
-    --bs-table-bg: var(--brand-800);
-    --bs-table-color: var(--primary-ink);
-    font-size: var(--ts-body);
-    font-weight: var(--fw-medium);
+    color: var(--ink-50);
+    font-family: var(--font-heading);
+    font-weight: var(--fw-semi);
+    font-size: 13px;
+    text-align: center;
+    background: var(--brand-800);
+    height: var(--density-row);
 }
 
+td, th {
+    padding: 0 var(--s-6);
+    height: var(--density-row);
+    vertical-align: middle;
+}
+
+/*
 .container{
     min-height: 20px;
     padding: var(--s-7) var(--s-6);
@@ -172,3 +185,4 @@ img[src$="notificacoes.svg"] {
     width: 24px;
     height: 24px;
 }
+    */
