@@ -114,14 +114,6 @@
             </div>
           </div>
 
-
-    <!-- <div class="container-table-agendados table-responsive">
-      <div class="filtrar-container">
-        <-- Botão de Filtrar --
-        <input type="text" placeholder="Filtrar" />
-        <button id="botao-filtrar">Filtrar</button>
-      </div> -->
-
       <!-- Tabela de Agendados -->
       <table class="container-table-agendados">
         <thead class="cabecalho">
@@ -134,96 +126,14 @@
             <th></th>
           
         </thead>
-        <tbody>
-          <tr>
-            <td>Cardiologia</td>
-            <td>Dr(a) Viviane Santos</td>
-            <td>28 de outubro, 10:00 - 11:00</td>
-            <td><span class="status agendado">Agendado</span></td>
-            <td>R. São tomas de aquino, 123 - Centro</td>
-            <td>
-              <a href="#" title="Abrir">
-                <img
-                  src="assets/abrir.svg"
-                  alt="Abrir"
-                  width="20"
-                  height="20"
-                />
-              </a>
-              <a href="#" title="Reagendar">
-                <img
-                  src="assets/reagendar.svg"
-                  alt="Reagendar"
-                  width="20"
-                  height="20"
-                />
-              </a>
-              <a href="#" title="Cancelar">
-                <img
-                  src="assets/cancelar.svg"
-                  alt="Cancelar"
-                  width="20"
-                  height="20"
-                />
-              </a>
-              <div class="mt-1">
-                <a href="#" title="Nova Consulta">
-                  <img
-                    src="assets/trocarHorario.svg"
-                    alt="Criar nova Consulta com este Profissional"
-                    width="20"
-                    height="20"
-                  />
-                </a>
-              </div>
-            </td>
-          </tr>
+        <tbody id="consultas-tbody"> 
 
-          <tr>
-            <td>Psiquiatria</td>
-            <td>Dr(a) Otávio Silva</td>
-            <td>28 de outubro, 10:00 - 11:00</td>
-            <td><span class="status agendado">Cancelada</span></td>
-            <td>R. São tomas de aquino, 789 - Jardim</td>
-            <td>
-              <a href="#" title="Abrir">
-                <img
-                  src="assets/abrir.svg"
-                  alt="Abrir"
-                  width="20"
-                  height="20"
-                />
-              </a>
-              <a href="#" title="Reagendar">
-                <img
-                  src="assets/reagendar.svg"
-                  alt="Reagendar"
-                  width="20"
-                  height="20"
-                />
-              </a>
-              <a href="#" title="Cancelar">
-                <img
-                  src="assets/cancelar.svg"
-                  alt="Cancelar"
-                  width="20"
-                  height="20"
-                />
-              </a>
-              <div class="mt-1">
-                <a href="#" title="Nova Consulta">
-                  <img
-                    src="assets/trocarHorario.svg"
-                    alt="Criar nova Consulta com este Profissional"
-                    width="20"
-                    height="20"
-                  />
-                </a>
-              </div>
-            </td>
-          </tr>
         </tbody>
+
       </table>
     </div>
+    <script src ="scripts/saveUpdateDelete.js" ></script>
+    <script src="scripts/consultas.js"></script>
+    </main>
   </body>
 </html>

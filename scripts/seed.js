@@ -1,53 +1,72 @@
 const seed = () => {
-  const instrutor = [
-    {
-      nome: "John Doe",
-      email: "john.doe@example.com",
-      senha: "123456",
-      cpf: "12345678900",
-      endereco: "Rua Teste, 123",
-      plano: "basic",
-      consultas: [
-        {
-          data: "2026-01-01",
-          horario: "10:00",
-          paciente: "John Doe",
-          status: "agendado",
-          endereco: "Rua Teste, 123",
-        },
-        {
-          data: "2026-01-01",
-          horario: "10:00",
-          paciente: "John Doe",
-          status: "agendado",
-          endereco: "Rua Teste, 123",
-        },
-      ],
-      agendamentos: [
-        {
-          data: "2026-01-01",
-          horario: "10:00",
-          paciente: "John Doe",
-          status: "agendado",
-        },
-      ],
-      premiacoes: [
-        {
-          data: "2026-01-01",
-          valor: 100,
-          status: "pago",
-        },
-      ],
-    },
-  ];
+  const usuario = {
+    nome: "John Doe",
+    email: "john.doe@example.com",
+    senha: "12345678",
+    cpf: "12345678900",
+    endereco: "Rua Local, 300",
+    plano: "basic",
+    consultas: [
+      {
+        medico: "Dr. Smith",
+        especialidade: "Cardiologia",
+        dataInicio: "2026-05-07T10:00:27.502Z",
+        dataFim: "2026-05-07T11:00:27.502Z",
+        paciente: "John Doe",
+        status: "agendado",
+        endereco: "Rua Teste, 123",
+      },
+      {
+        medico: "Dr. Johnson",
+        especialidade: "Psiquiatria",
+        dataInicio: "2026-05-07T11:00:27.502Z",
+        dataFim: "2026-05-07T12:00:27.502Z",
+        paciente: "John Doe",
+        status: "agendado",
+        endereco: "Rua Teste, 123",
+      },
+    ],
+    premiacoes: [
+      {
+        dataInicio: "2026-05-07T10:00:27.502Z",
+        dataFim: "2026-05-07T10:00:27.502Z",
+        valor: 100,
+        status: "pago",
+      },
+    ],
+  };
 
-  const usuarios = get("usuarios");
+  const medico = {
+    nome: "Dr. Smith",
+    email: "dr.smith@example.com",
+    senha: "123456",
+    cpf: "98765432100",
+    especialidade: "Cardiologia",
+    telefone: "11987654321",
+    crm: "12345",
+    disponibilidades: [
+      {
+        dataInicio: "2026-05-07T10:00:27.502Z",
+        dataFim: "2026-05-07T11:00:27.502Z",
+      },
+      {
+        dataInicio: "2026-05-07T11:00:27.502Z",
+        dataFim: "2026-05-07T12:00:27.502Z",
+      },
+    ],
+  };
 
-  if (usuarios?.find((usuario) => usuario.email === instrutor[0].email)) {
+  const clinica = {
+    nome: "Clínica Saúde",
+    endereco: "Rua Teste, 123",
+  };
+    
+const usuarios = get("usuarios") || [];
+  if (usuarios?.find((user) => user.email === usuario.email)) {
     return;
   }
 
-  saveBulk("usuarios", instrutor);
+  saveBulk("usuarios", [usuario]);
 };
 
 window.onload = seed;
