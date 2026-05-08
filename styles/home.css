@@ -1,0 +1,400 @@
+.content {
+    margin-left: var(--nav-w);
+    padding: var(--s-6);
+}
+.flex-grow-1 {
+    margin-left: 70px;
+}
+.btn {
+  --bs-btn-padding-y: 0;
+  --bs-btn-padding-x: var(--s-5);
+  height: var(--density-input);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  border-radius: var(--r-md);
+  font-family: var(--font-body);
+  font-size: var(--ts-body);
+  font-weight: var(--fw-semi);
+  white-space: nowrap;
+}
+.btn:focus-visible {
+  box-shadow: var(--sh-focus);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--primary);
+  --bs-btn-border-color: var(--primary);
+  --bs-btn-hover-bg: var(--primary-hover);
+  --bs-btn-hover-border-color: var(--primary-hover);
+  --bs-btn-active-bg: var(--primary-press);
+  --bs-btn-active-border-color: var(--primary-press);
+  --bs-btn-color: var(--primary-ink);
+  --bs-btn-hover-color: var(--primary-ink);
+}
+
+.btn-secondary {
+  --bs-btn-bg: var(--surface);
+  --bs-btn-border-color: var(--primary);
+  --bs-btn-color: var(--primary);
+  --bs-btn-hover-bg: var(--primary-soft);
+  --bs-btn-hover-border-color: var(--primary);
+  --bs-btn-hover-color: var(--primary);
+  --bs-btn-active-bg: var(--primary-soft);
+  --bs-btn-active-color: var(--primary);
+}
+
+.btn-icon {
+  width: var(--density-input);
+  padding: 0;
+  background: var(--surface);
+  color: var(--ink-600);
+  border: 1px solid var(--ink-200);
+}
+.btn-icon:hover {
+  background: var(--ink-100);
+  color: var(--ink-800);
+}
+.btn-ghost-icon {
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  color: var(--ink-700);
+}
+.btn-ghost-icon:hover { background: var(--ink-100); }
+
+/* ── Inputs / selects ─────────────────────────────────────────────── */
+.input,
+.select {
+  height: var(--density-input);
+  padding: 0 var(--s-4);
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  background: var(--ink-100);
+  font-family: var(--font-body);
+  font-size: var(--ts-body);
+  color: var(--ink-800);
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+.input::placeholder { color: var(--ink-400); }
+.input:hover, .select:hover { background: var(--ink-150); }
+.input:focus, .select:focus {
+  outline: none;
+  background: var(--surface);
+  border-color: var(--primary);
+  box-shadow: var(--sh-focus);
+}
+.select {
+  appearance: none;
+  padding-right: var(--s-8);
+}
+
+/* Wrapper that owns the animated chevron */
+.select-wrap {
+  position: relative;
+  display: inline-block;
+}
+.select-wrap .select { width: 100%; }
+.select-wrap::after {
+  content: "";
+  position: absolute;
+  right: var(--s-4);
+  top: 50%;
+  width: 12px;
+  height: 8px;
+  pointer-events: none;
+  background-color: var(--ink-500);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round'/></svg>") no-repeat center / contain;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round'/></svg>") no-repeat center / contain;
+  transform: translateY(-50%) rotateX(0deg);
+  transform-origin: center;
+  transition: transform 0.22s ease;
+}
+.select-wrap:focus-within::after {
+  transform: translateY(-50%) rotateX(180deg);
+}
+.input-search {
+  width: 280px;
+  height: 40px;
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  border: 1px solid var(--ink-200);
+  padding-left: 40px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none' stroke='%236b7186' stroke-width='1.6' stroke-linecap='round'><circle cx='7' cy='7' r='5'/><path d='M11 11l3 3'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 14px center;
+}
+.cal-select-month { width: 140px; }
+.cal-select-year { width: 100px; }
+
+/* ── Hero band ────────────────────────────────────────────────────── */
+.hero-band {
+  height: 120px;
+  border-radius: var(--r-lg);
+  background: var(--hero-gradient);
+}
+
+/* ── Counter pill (used inside calendar pills) ────────────────────── */
+.badge-count {
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: var(--ink-800);
+  font-size: 10px;
+  font-weight: var(--fw-bold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Avatar ───────────────────────────────────────────────────────── */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--fw-semi);
+  font-size: 14px;
+  color: #fff;
+  background: var(--ink-200);
+  overflow: hidden;
+}
+.avatar-gradient { background: linear-gradient(135deg, #5569a8, #8396c4); }
+
+/* ── Topbar / muted ink helper ────────────────────────────────────── */
+.topbar { height: var(--topbar-h); }
+.text-muted-ink { color: var(--ink-500); }
+
+/* ── Nav rail ─────────────────────────────────────────────────────── */
+.nav-rail {
+  width: var(--nav-w);
+  background: var(--surface);
+  border-right: 1px solid var(--ink-150);
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+}
+.nav-brand {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 16px;
+}
+.nav-item {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-500);
+  text-decoration: none;
+  font-size: 18px;
+  transition: background 0.12s, color 0.12s;
+}
+.nav-item:hover { background: var(--ink-100); color: var(--ink-800); }
+.nav-item.active { background: var(--primary-soft); color: var(--primary); 
+}
+.search-bar {
+  margin-left: 120px;
+  display: flex;
+  align-items: center;
+  background: var(--hero-gradient);
+  border-radius: var(--r-md);
+  padding: 0 var(--s-4);
+  width: 40%;
+  height: 50px;
+  box-shadow: var(--sh-1);
+  transition: width 0.3s ease, height 0.3s ease, margin 0.3s ease;
+}
+
+.search-bar:focus-within {
+  width: 90%;
+  height: 80px;
+  margin: 0 100px;
+}
+
+.search-icon {
+    width: 72px;
+    height: 70px;
+}
+.search-bar input {
+    font-size: var(--ts-body-lg);
+    color: var(--ink-700);
+    border-width: medium;
+    border-style: none;
+    border-color: currentcolor;
+    border-image: initial;
+    outline: none;
+    flex: 1 1 0%;
+    background: transparent;
+}
+
+/* ── MAIN CONTENT ───────────────────────────── */
+
+.contenth2 {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+}
+.opcoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-6);
+  }
+  .card-icon,
+  .card-icon-heart,
+  .card-icon-potion {
+    height: 50px;
+    display: block;
+    margin-left: 90%;
+    transform: translateX(-50%);
+}
+#card-consulta {
+  border-radius: 15px;
+    margin-left: 60px;
+    font-size: 20px;
+    background-color: var(--card-blue-bg);
+    color: var(--card-blue-ink);
+    width: auto;
+    border: 1px solid var(--card-blue-edge);
+}
+#card-cirurgia {
+    border-radius: 15px;
+    font-size: 20px;
+    background-color: var(--card-pink-bg);
+    color: var(--card-yellow-ink);
+    justify-content: flex-end;
+    margin-right: 60px;
+    width: auto;
+    border: 1px solid var(--card-pink-edge);
+}
+
+#card-odontologia {
+    border-radius: 15px;
+    font-size: 20px;
+    background-color: var(--card-yellow-bg);
+    color: var(--card-pink-ink);
+    margin-left: 60px;
+    width: auto;
+    border: 1px solid var(--card-yellow-edge);
+}
+#card-exames {
+    border-radius: 15px;
+    font-size: 20px;
+    background-color: var(--card-green-bg);
+    color: var(--card-green-ink);
+    justify-content: flex-end;
+    margin-right: 60px;
+    width: auto;
+    border: 1px solid var(--card-green-edge);
+}
+
+#card-consulta,
+#card-cirurgia,
+#card-odontologia,
+#card-exames,
+.lado.masculino .card,
+.lado.feminino .card {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+#card-consulta:hover,
+#card-cirurgia:hover,
+#card-odontologia:hover,
+#card-exames:hover,
+.lado.masculino .card:hover,
+.lado.feminino .card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+  filter: brightness(1.05);
+  opacity: 1;
+  transition: all 0.35s ease;
+}
+
+
+#card-consulta:active,
+#card-cirurgia:active,
+#card-odontologia:active,
+#card-exames:active,
+.lado.masculino .card:active,
+.lado.feminino .card:active {
+  transform: translateY(1px);
+  box-shadow: var(--sh-1);
+}
+
+.especialidades {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  column-gap: 80px;
+  align-items: center;
+  padding: 40px 60px;
+}
+.lado {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.lado.masculino .card {
+    background-color: var(--card-blue-bg);
+    color: var(--card-blue-ink);
+    box-shadow: var(--sh-1);
+    cursor: pointer;
+    font-weight: var(--fw-semi);
+    border: 1px solid var(--card-blue-edge);
+    border-radius: var(--r-md);
+    padding: var(--s-4);
+    transition: 0.2s;
+}
+.lado.feminino .card {
+    background-color: var(--card-pink-bg);
+    color: var(--card-pink-ink);
+    box-shadow: var(--sh-1);
+    cursor: pointer;
+    font-weight: var(--fw-semi);
+    border: 1px solid var(--card-pink-edge);
+    border-radius: var(--r-md);
+    padding: var(--s-4);
+    width: auto;
+    transition: 0.2s;
+}
+#content-fundo {
+    background-color: var(--primary-ink);
+    width: auto;
+    height: 700px;
+    position: relative;
+    border: 2px solid var(--primary-ink);
+    border-radius: 25px;
+    margin: 75px;
+    padding: 0px 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+.simbolo-genero {
+  justify-self: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.simbolo-genero:hover {
+  transform: scale(1.1);
+  filter: brightness(1.15);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
