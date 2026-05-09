@@ -1,0 +1,46 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--s-4) var(--s-6);
+}
+
+header h1 {
+        font-size: var(--ts-h1);
+        line-height: var(--lh-h1);
+        font-weight: var(--fw-bold);
+        margin: 0;
+        white-space: nowrap;
+}
+
+.container-table-agendados {
+    background: var(--surface);
+    border-radius: var(--r-md);
+    margin-bottom: var(--s-6);
+    overflow: hidden;
+    font-size: 13px;
+    line-height: var(--lh-body);
+    color: var(--ink-700);
+    font-weight: var(--fw-medium);
+    letter-spacing: -0.01em;
+    border: 1px solid var(--ink-200);
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.cabecalho{
+    color: var(--ink-50);
+    font-family: var(--font-heading);
+    font-weight: var(--fw-semi);
+    font-size: 13px;
+    text-align: middle;
+    background: var(--brand-800);
+    height: var(--density-row);
+}
+
+td, th {
+    padding: 0 var(--s-6);
+    height: var(--density-row);
+    vertical-align: middle;
+}
