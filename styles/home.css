@@ -255,14 +255,17 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--s-6);
   }
-  .card-icon,
-  .card-icon-heart,
-  .card-icon-potion {
-    height: 50px;
-    display: block;
-    margin-left: 90%;
-    transform: translateX(-50%);
+.card-icon,
+.card-icon-heart,
+.card-icon-potion {
+  height: 50%;
+  width: auto;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
 }
+
 #card-consulta {
   border-radius: 15px;
     margin-left: 60px;
@@ -276,7 +279,7 @@
     border-radius: 15px;
     font-size: 20px;
     background-color: var(--card-pink-bg);
-    color: var(--card-yellow-ink);
+    color: var(--card-pink-ink);
     justify-content: flex-end;
     margin-right: 60px;
     width: auto;
@@ -375,7 +378,7 @@
 #content-fundo {
     background-color: var(--primary-ink);
     width: auto;
-    height: 700px;
+    height: 80%;
     position: relative;
     border: 2px solid var(--primary-ink);
     border-radius: 25px;
@@ -393,11 +396,7 @@
   transition: all 0.3s ease;
 }
 
-.simbolo-genero:hover {
-  transform: scale(1.1);
-  filter: brightness(1.15);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-}
+
 :root {
   --surface: #ffffff;
   --ink-900: #000000;
@@ -462,4 +461,23 @@ body.dark-mode #card-odontologia {
 body.dark-mode #card-exames {
   background-color: var(--card-green-bg);
   color: #fff;
+}
+#card-consulta,
+#card-cirurgia,
+#card-odontologia,
+#card-exames {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+  min-height: 120px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cardtext {
+  font-size: 20px;
+  font-weight: var(--fw-semi);
 }
