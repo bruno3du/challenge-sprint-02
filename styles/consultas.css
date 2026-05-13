@@ -40,7 +40,7 @@ header h1 {
 }
 
 td, th {
-    padding: 0 var(--s-6);
+    padding: var(--s-6);
     height: var(--density-row);
     vertical-align: middle;
 }
