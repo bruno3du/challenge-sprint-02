@@ -9,6 +9,27 @@ const consultas = () => {
   // Extraímos todas as consultas de um usuário
   const listaConsultas = usuario.consultas || [];
 
+  // Ordena as consultas: futuras primeiro (mais próximas) e passadas por último (mais antigas no fim)
+  const agora = new Date();
+  listaConsultas.sort((a, b) => {
+    const dataA = new Date(a.dataInicio);
+    const dataB = new Date(b.dataInicio);
+    const isAFutura = dataA >= agora;
+    const isBFutura = dataB >= agora;
+
+    // Se uma é futura e a outra passada, a futura tem prioridade (-1)
+    if (isAFutura && !isBFutura) return -1;
+    if (!isAFutura && isBFutura) return 1;
+
+    // Se ambas são futuras, a mais próxima de hoje vem primeiro
+    if (isAFutura && isBFutura) return dataA - dataB;
+    // Se ambas são passadas, a mais recente vem primeiro para a mais antiga ficar no final
+    return dataB - dataA;
+  });
+
+  // Atualiza o storage com a nova ordem para que os índices de exclusão/reagendamento funcionem corretamente
+  save("login", usuario);
+
   const tbody = document.getElementById("consultas-tbody");
 
   if (!tbody) return;
@@ -21,17 +42,17 @@ const consultas = () => {
   listaConsultas.forEach((consulta, index) => {
     const tr = document.createElement("tr");
 
-    // Formatação da classe de status para o CSS (ex: "Agendado" -> "agendado")
-    const statusClass = consulta.status ? consulta.status.toLowerCase() : "";
+    // Formata o status para exibição e adiciona uma classe CSS correspondente 
+    const statusClass = consulta.status ? consulta.status.toUpperCase() : "";
 
     tr.innerHTML = `
       <td>${consulta.especialidade || "Geral"}</td>
-      <td>${consulta.paciente}</td>
+      <td>${consulta.medico || "Médico não especificado"}</td>
       <td>${Intl.DateTimeFormat("pt-BR").format(new Date(consulta.dataInicio))}</td>
       <td><span class="status ${statusClass}">${consulta.status}</span></td>
       <td>${consulta.endereco}</td>
-      <td>
-        <a href="#" title="Abrir" class="btn-abrir" data-index="${index}">
+      <td class="d-flex justify-content-between align-items-center">
+        <a href="#" title="Abrir Localização da Consulta" class="btn-abrir" data-index="${index}">
           <img src="assets/abrir.svg" alt="Abrir" width="20" height="20" />
         </a>
         <a href="#" title="Reagendar">
