@@ -21,12 +21,12 @@ const consultas = () => {
   listaConsultas.forEach((consulta, index) => {
     const tr = document.createElement("tr");
 
-    // Formatação da classe de status para o CSS (ex: "Agendado" -> "agendado")
-    const statusClass = consulta.status ? consulta.status.toLowerCase() : "";
+    // Formata o status para exibição e adiciona uma classe CSS correspondente 
+    const statusClass = consulta.status ? consulta.status.toUpperCase() : "";
 
     tr.innerHTML = `
       <td>${consulta.especialidade || "Geral"}</td>
-      <td>${consulta.paciente}</td>
+      <td>${consulta.medico || "Médico não especificado"}</td>
       <td>${Intl.DateTimeFormat("pt-BR").format(new Date(consulta.dataInicio))}</td>
       <td><span class="status ${statusClass}">${consulta.status}</span></td>
       <td>${consulta.endereco}</td>

@@ -15,7 +15,7 @@ const seed = () => {
           dataInicio: "2026-05-07T10:00:27.502Z",
           dataFim: "2026-05-07T11:00:27.502Z",
           paciente: "John Doe",
-          status: "agendado",
+          status: "Agendado",
           endereco: "Rua Teste, 123",
         },
         {
@@ -24,7 +24,7 @@ const seed = () => {
           dataInicio: "2026-05-07T11:00:27.502Z",
           dataFim: "2026-05-07T12:00:27.502Z",
           paciente: "John Doe",
-          status: "agendado",
+          status: "Agendado",
           endereco: "Rua Teste, 123",
         },
       ],
