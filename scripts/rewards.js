@@ -27,19 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 16);
   }
 
-  const toggleBtn = document.getElementById("dark-toggle");
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      const icon = toggleBtn.querySelector("i");
-      if (document.body.classList.contains("dark-mode")) {
-        icon.classList.replace("bi-moon", "bi-sun");
-      } else {
-        icon.classList.replace("bi-sun", "bi-moon");
-      }
-    });
-  }
-
   const gerarCodigoCupom = (esp) => {
     const prefixo = (esp || "RWD").slice(0, 4).toUpperCase();
     const rand = Math.random().toString(36).slice(2, 8).toUpperCase();
