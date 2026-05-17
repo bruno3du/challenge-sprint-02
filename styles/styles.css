@@ -234,6 +234,68 @@
 }
 .cal-cell:hover { background: var(--ink-50); }
 .cal-cell.is-muted { opacity: 0.4; }
+.cal-cell.is-empty { opacity: 0.35; }
+.cal-cell { position: relative; }
+.cal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.cal-pills-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 52px;
+  overflow: hidden;
+}
+.cal-cell.is-expanded { z-index: 10; }
+.cal-cell.is-expanded .cal-content {
+  position: absolute;
+  top: 32px;
+  left: 4px;
+  right: 4px;
+  background: var(--surface, #fff);
+  padding: 8px;
+  border: 1px solid var(--ink-200);
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+}
+.cal-cell.is-expanded .cal-pills-wrap {
+  max-height: none;
+  overflow: visible;
+}
+.cal-more {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2px;
+  border: 0;
+  cursor: pointer;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.9) 55%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  color: var(--ink-700);
+  font-size: 14px;
+  line-height: 1;
+  z-index: 2;
+}
+.cal-cell.is-expanded .cal-more {
+  background: transparent;
+  position: static;
+  height: auto;
+  padding-top: 4px;
+  margin-top: 2px;
+}
+.cal-cell:hover .cal-more { color: var(--primary); }
+.cal-more-icon { transition: transform 0.15s ease; display: inline-block; }
 .cal-cell:nth-child(7n) { border-right: none; }
 .cal-body > .cal-cell:nth-last-child(-n + 7) { border-bottom: none; }
 .cal-num {

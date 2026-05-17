@@ -1,4 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const lado1 = document.getElementById("especialidades-lado-1");
+  const lado2 = document.getElementById("especialidades-lado-2");
+
+  if (lado1 && lado2 && typeof especialidade === "object") {
+    const nomes = Object.values(especialidade);
+    const meio = Math.ceil(nomes.length / 2);
+    nomes.forEach((nome, i) => {
+      const btn = document.createElement("button");
+      btn.className = "card";
+      btn.textContent = nome;
+      btn.dataset.especialidade = nome;
+      btn.addEventListener("click", () => {
+        const q = encodeURIComponent(nome);
+        window.location.href = `agendamento.html?especialidade=${q}`;
+      });
+      (i < meio ? lado1 : lado2).appendChild(btn);
+    });
+  }
+
   const searchInput = document.querySelector(".search-bar input");
   const cards = document.querySelectorAll(".especialidades .card");
 

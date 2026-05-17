@@ -20,7 +20,8 @@
     ></script>
     <link rel="stylesheet" href="./styles/home.css" />
     <link rel="stylesheet" href="./styles/tokens.css" />
-    <script src="./script/home.js"></script>
+    <script src="./scripts/common.js" defer></script>
+    <script src="./scripts/home.js" defer></script>
 
     <title>Início</title>
   </head>
@@ -115,23 +116,13 @@
           </div>
 
           <section class="especialidades">
-            <div class="lado masculino">
-              <button class="card">Urologista</button>
-              <button class="card">Andrologista</button>
-              <button class="card">Endocrinologista</button>
-              <button class="card">Proctologista</button>
-            </div>
+            <div class="lado masculino" id="especialidades-lado-1"></div>
             <img
               src="./assets/img/simbolos-de-genero-iconografia-masculina-e-feminina-para-diversas-aplicacoes_1281599-55652 (1).png"
               alt="Símbolo de gênero"
               class="simbolo-genero"
             />
-            <div class="lado feminino">
-              <button class="card">Obstetra</button>
-              <button class="card">Ginecologista</button>
-              <button class="card">Mastologista</button>
-              <button class="card">Uro-ginecologista</button>
-            </div>
+            <div class="lado feminino" id="especialidades-lado-2"></div>
           </section>
         </main>
       </main>
