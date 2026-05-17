@@ -20,7 +20,8 @@
     ></script>
     <link rel="stylesheet" href="./styles/home.css" />
     <link rel="stylesheet" href="./styles/tokens.css" />
-    <script src="./script/home.js"></script>
+    <script src="./scripts/common.js" defer></script>
+    <script src="./scripts/home.js" defer></script>
 
     <title>Início</title>
   </head>
@@ -29,25 +30,20 @@
     <div class="d-flex min-vh-100">
       <aside class="nav-rail d-flex flex-column align-items-center gap-2 py-3">
         <div class="nav-brand mb-3">E</div>
-        <a class="nav-item active" href="#" title="Painel" aria-label="Painel">
-          <i class="bi bi-grid-fill"></i>
+        <a class="nav-item active" href="home.html" title="Início" aria-label="Início">
+          <i class="bi bi-house-door-fill"></i>
         </a>
-        <a class="nav-item" href="#" title="Histórico" aria-label="Histórico">
+        <a class="nav-item" href="agendamento.html" title="Agendar" aria-label="Agendar">
+          <i class="bi bi-calendar-plus"></i>
+        </a>
+        <a class="nav-item" href="consultas.html" title="Consultas" aria-label="Consultas">
           <i class="bi bi-clock-history"></i>
         </a>
-        <a class="nav-item" href="#" title="Pessoas" aria-label="Pessoas">
-          <i class="bi bi-people"></i>
+        <a class="nav-item" href="rewards.html" title="Recompensas" aria-label="Recompensas">
+          <i class="bi bi-gift"></i>
         </a>
-        <a class="nav-item" href="#" title="Mensagens" aria-label="Mensagens">
-          <i class="bi bi-chat-left"></i>
-        </a>
-        <a
-          class="nav-item"
-          href="#"
-          title="Configurações"
-          aria-label="Configurações"
-        >
-          <i class="bi bi-gear"></i>
+        <a class="nav-item" href="perfil.html" title="Perfil" aria-label="Perfil">
+          <i class="bi bi-person-circle"></i>
         </a>
       </aside>
 
@@ -120,23 +116,13 @@
           </div>
 
           <section class="especialidades">
-            <div class="lado masculino">
-              <button class="card">Urologista</button>
-              <button class="card">Andrologista</button>
-              <button class="card">Endocrinologista</button>
-              <button class="card">Proctologista</button>
-            </div>
+            <div class="lado masculino" id="especialidades-lado-1"></div>
             <img
               src="./assets/img/simbolos-de-genero-iconografia-masculina-e-feminina-para-diversas-aplicacoes_1281599-55652 (1).png"
               alt="Símbolo de gênero"
               class="simbolo-genero"
             />
-            <div class="lado feminino">
-              <button class="card">Obstetra</button>
-              <button class="card">Ginecologista</button>
-              <button class="card">Mastologista</button>
-              <button class="card">Uro-ginecologista</button>
-            </div>
+            <div class="lado feminino" id="especialidades-lado-2"></div>
           </section>
         </main>
       </main>

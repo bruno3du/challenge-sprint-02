@@ -1,218 +1,186 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tela Perfil</title>
-  <title>Perfil</title>
+    <title>Perfil</title>
 
-  <!-- Bootstrap -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- Bootstrap Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-  />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
 
-  <!-- TOKENS -->
-  <link rel="stylesheet" href="styles/tokens.css" />
+    <!-- TOKENS -->
+    <link rel="stylesheet" href="styles/tokens.css" />
 
-  <!-- GLOBAL -->
-  <link rel="stylesheet" href="styles/styles.css" />
+    <!-- GLOBAL -->
+    <link rel="stylesheet" href="styles/styles.css" />
 
-  <!-- PERFIL -->
-  <link rel="stylesheet" href="styles/perfil.css" />
+    <!-- PERFIL -->
+    <link rel="stylesheet" href="styles/perfil.css" />
+  </head>
 
-</head>
+  <body>
+    <div class="d-flex min-vh-100">
+      <!-- SIDEBAR -->
+      <aside class="nav-rail d-flex flex-column align-items-center gap-2 py-3">
+        <div class="nav-brand mb-3">E</div>
 
-<body>
+        <a class="nav-item" href="home.html" title="Início" aria-label="Início">
+          <i class="bi bi-house-door-fill"></i>
+        </a>
 
-<div class="d-flex min-vh-100">
+        <a
+          class="nav-item"
+          href="agendamento.html"
+          title="Agendar"
+          aria-label="Agendar"
+        >
+          <i class="bi bi-calendar-plus"></i>
+        </a>
 
-  <!-- SIDEBAR -->
-  <aside class="nav-rail d-flex flex-column align-items-center gap-2 py-3">
+        <a
+          class="nav-item"
+          href="consultas.html"
+          title="Consultas"
+          aria-label="Consultas"
+        >
+          <i class="bi bi-clock-history"></i>
+        </a>
 
-    <div class="nav-brand mb-3">E</div>
+        <a
+          class="nav-item"
+          href="rewards.html"
+          title="Recompensas"
+          aria-label="Recompensas"
+        >
+          <i class="bi bi-gift"></i>
+        </a>
 
-    <a
-      class="nav-item active"
-      href="#"
-      title="Dashboard"
-    >
-      <i class="bi bi-grid-fill"></i>
-    </a>
+        <a
+          class="nav-item active"
+          href="perfil.html"
+          title="Perfil"
+          aria-label="Perfil"
+        >
+          <i class="bi bi-person-circle"></i>
+        </a>
+      </aside>
 
-    <a
-      class="nav-item"
-      href="#"
-      title="Histórico"
-    >
-      <i class="bi bi-clock-history"></i>
-    </a>
+      <!-- MAIN -->
+      <main class="flex-fill d-flex flex-column min-w-0">
+        <!-- TOPBAR -->
+        <header class="topbar d-flex align-items-center gap-3 px-5">
+          <div class="flex-grow-1">
+            <h1 class="m-0">Perfil</h1>
 
-    <a
-      class="nav-item"
-      href="#"
-      title="Pessoas"
-    >
-      <i class="bi bi-people"></i>
-    </a>
-
-    <a
-      class="nav-item"
-      href="#"
-      title="Mensagens"
-    >
-      <i class="bi bi-chat-left"></i>
-    </a>
-
-    <a
-      class="nav-item"
-      href="#"
-      title="Configurações"
-    >
-      <i class="bi bi-gear"></i>
-    </a>
-
-  </aside>
-
-  <!-- MAIN -->
-  <main class="flex-fill d-flex flex-column min-w-0">
-
-    <!-- TOPBAR -->
-    <header class="topbar d-flex align-items-center gap-3 px-5">
-
-      <div class="flex-grow-1">
-        <h1 class="m-0">Perfil</h1>
-
-        <div class="text-muted-ink small">
-          Terça, 17 de julho de 2026
-        </div>
-      </div>
-
-      <input
-        type="text"
-        class="input input-search"
-        placeholder="Pesquisar"
-      />
-
-      <button
-        type="button"
-        class="btn btn-icon rounded-pill"
-      >
-        <i class="bi bi-bell"></i>
-      </button>
-
-      <div class="avatar avatar-gradient">
-        A
-      </div>
-
-    </header>
-
-    <!-- PAGE -->
-    <div class="px-5 pb-5">
-
-      <!-- CARD -->
-      <section class="profile-card">
-
-        <!-- HEADER -->
-        <div class="profile-header">
-
-          <div class="profile-user">
-
-            <div class="profile-avatar">
-              A
-            </div>
-
-            <div>
-              <h2>Alexa Rawles</h2>
-
-              <p>
-                alexarawles@gmail.com
-              </p>
-            </div>
-
+            <div class="text-muted-ink small">Terça, 17 de julho de 2026</div>
           </div>
 
-          <button class="btn btn-primary profile-btn">
-            <i class="bi bi-pencil"></i>
-            Atualizar
+          <input
+            type="text"
+            class="input input-search"
+            placeholder="Pesquisar"
+          />
+
+          <button type="button" class="btn btn-icon rounded-pill">
+            <i class="bi bi-bell"></i>
           </button>
 
+          <div class="avatar avatar-gradient">A</div>
+        </header>
+
+        <!-- PAGE -->
+        <div class="px-5 pb-5">
+          <!-- CARD -->
+          <section class="profile-card">
+            <!-- HEADER -->
+            <div class="profile-header">
+              <div class="profile-user">
+                <div class="profile-avatar">A</div>
+
+                <div>
+                  <h2>Alexa Rawles</h2>
+
+                  <p>alexarawles@gmail.com</p>
+                </div>
+              </div>
+
+              <button class="btn btn-primary profile-btn">
+                <i class="bi bi-pencil"></i>
+                Atualizar
+              </button>
+            </div>
+
+            <!-- BODY -->
+            <div class="profile-body">
+              <div class="profile-grid">
+                <div class="form-group">
+                  <label>Nome</label>
+                  <input type="text" class="input" value="Alexa" />
+                </div>
+
+                <div class="form-group">
+                  <label>Sobrenome</label>
+                  <input type="text" class="input" value="Rawles" />
+                </div>
+
+                <div class="form-group">
+                  <label>CPF</label>
+                  <input type="text" class="input" value="000.000.000-00" />
+                </div>
+
+                <div class="form-group">
+                  <label>RG</label>
+                  <input type="text" class="input" value="00.000.000-0" />
+                </div>
+
+                <div class="form-group">
+                  <label>Data de Nascimento</label>
+                  <input type="text" class="input" value="12/04/1995" />
+                </div>
+
+                <div class="form-group">
+                  <label>E-mail</label>
+                  <input
+                    type="email"
+                    class="input"
+                    value="alexarawles@gmail.com"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>Endereço</label>
+                  <input type="text" class="input" value="Av. Brasil, 1220" />
+                </div>
+
+                <div class="form-group">
+                  <label>Cidade</label>
+                  <input type="text" class="input" value="São Paulo" />
+                </div>
+
+                <div class="form-group">
+                  <label>Estado</label>
+                  <input type="text" class="input" value="SP" />
+                </div>
+
+                <div class="form-group">
+                  <label>CEP</label>
+                  <input type="text" class="input" value="01310-100" />
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
-
-        <!-- BODY -->
-        <div class="profile-body">
-
-          <div class="profile-grid">
-
-            <div class="form-group">
-              <label>Nome</label>
-              <input type="text" class="input" value="Alexa">
-            </div>
-
-            <div class="form-group">
-              <label>Sobrenome</label>
-              <input type="text" class="input" value="Rawles">
-            </div>
-
-            <div class="form-group">
-              <label>CPF</label>
-              <input type="text" class="input" value="000.000.000-00">
-            </div>
-
-            <div class="form-group">
-              <label>RG</label>
-              <input type="text" class="input" value="00.000.000-0">
-            </div>
-
-            <div class="form-group">
-              <label>Data de Nascimento</label>
-              <input type="text" class="input" value="12/04/1995">
-            </div>
-
-            <div class="form-group">
-              <label>E-mail</label>
-              <input type="email" class="input" value="alexarawles@gmail.com">
-            </div>
-
-            <div class="form-group">
-              <label>Endereço</label>
-              <input type="text" class="input" value="Av. Brasil, 1220">
-            </div>
-
-            <div class="form-group">
-              <label>Cidade</label>
-              <input type="text" class="input" value="São Paulo">
-            </div>
-
-            <div class="form-group">
-              <label>Estado</label>
-              <input type="text" class="input" value="SP">
-            </div>
-
-            <div class="form-group">
-              <label>CEP</label>
-              <input type="text" class="input" value="01310-100">
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
+      </main>
     </div>
-
-  </main>
-
-</div>
-
-
-
-</body>
+  </body>
 </html>
