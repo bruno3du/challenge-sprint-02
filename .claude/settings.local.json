@@ -7,7 +7,9 @@
       "Bash(git push *)",
       "Bash(git checkout *)",
       "Bash(awk 'NR==130{print \"            <div class=\\\\\"cal-body\\\\\" id=\\\\\"cal-body\\\\\"></div>\"; skip=1} skip && /^            <\\\\/div>$/{skip=0; next} !skip' C:/Users/Bruno/Documents/faculdade/chalenge-02/agendamento.html)",
-      "Bash(mv /tmp/ag.html C:/Users/Bruno/Documents/faculdade/chalenge-02/agendamento.html)"
+      "Bash(mv /tmp/ag.html C:/Users/Bruno/Documents/faculdade/chalenge-02/agendamento.html)",
+      "Bash(sed -i 's|\"agendamento.html?|\"./agendamento.html?|g; s|\"home.html\"|\"./home.html\"|g; s|\"index.html\"|\"./index.html\"|g; s|\"consultas.html\"|\"./consultas.html\"|g' scripts/rewards.js scripts/home.js scripts/formRegister.js scripts/common.js scripts/consultas.js scripts/agendamento.js)",
+      "Bash(sed -i \"s|\\\\`agendamento.html?|\\\\`./agendamento.html?|g\" scripts/rewards.js scripts/home.js)"
     ]
   }
 }

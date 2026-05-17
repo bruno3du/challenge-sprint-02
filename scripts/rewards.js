@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="cupom-codigo">${c.codigo}</span>
             <span class="cupom-desc">${c.desconto}% off em ${c.especialidade}</span>
           </div>
-          <a class="btn-usar" href="agendamento.html?cupom=${encodeURIComponent(c.codigo)}">
+          <a class="btn-usar" href="./agendamento.html?cupom=${encodeURIComponent(c.codigo)}">
             Usar agora
           </a>
         </div>`,
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `Cupom gerado: ${codigo}\n${desconto}% de desconto em ${esp}.\n\nDeseja ir para o agendamento agora?`,
       );
       if (usar) {
-        window.location.href = `agendamento.html?cupom=${encodeURIComponent(codigo)}`;
+        window.location.href = `./agendamento.html?cupom=${encodeURIComponent(codigo)}`;
       }
     });
   });

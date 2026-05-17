@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => {
       const esp = btn.dataset.especialidade;
       if (!esp) return;
-      window.location.href = `agendamento.html?especialidade=${encodeURIComponent(esp)}`;
+      window.location.href = `./agendamento.html?especialidade=${encodeURIComponent(esp)}`;
     });
   });
 
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.dataset.especialidade = nome;
       btn.addEventListener("click", () => {
         const q = encodeURIComponent(nome);
-        window.location.href = `agendamento.html?especialidade=${q}`;
+        window.location.href = `./agendamento.html?especialidade=${q}`;
       });
       (i < meio ? lado1 : lado2).appendChild(btn);
     });

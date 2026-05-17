@@ -44,7 +44,7 @@ const adicionarBotaoLogout = () => {
     if (!confirm("Deseja realmente sair?")) return;
     if (typeof remove === "function") remove("login");
     else window.localStorage.removeItem("login");
-    window.location.href = "index.html";
+    window.location.href = "./index.html";
   });
   const avatar = topbar.querySelector(".avatar");
   if (avatar) topbar.insertBefore(btn, avatar);

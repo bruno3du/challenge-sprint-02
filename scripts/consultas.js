@@ -201,7 +201,7 @@ const consultas = () => {
   const usuario = get("login");
   if (!usuario) {
     alert("Usuário não encontrado. Faça login novamente.");
-    window.location.href = "index.html";
+    window.location.href = "./index.html";
     return;
   }
 
@@ -264,7 +264,7 @@ const consultas = () => {
         <a href="#" title="Abrir Localização da Consulta" class="btn-abrir" data-index="${indexReal}">
           <img src="assets/abrir.svg" alt="Abrir" width="20" height="20" />
         </a>
-        <a href="agendamento.html?reagendar=${indexReal}&especialidade=${encodeURIComponent(consulta.especialidade || "")}" title="Reagendar" class="btn-reagendar">
+        <a href="./agendamento.html?reagendar=${indexReal}&especialidade=${encodeURIComponent(consulta.especialidade || "")}" title="Reagendar" class="btn-reagendar">
           <img src="assets/reagendar.svg" alt="Reagendar" width="20" height="20" />
         </a>
         <a href="#" title="Cancelar" class="btn-cancelar" data-index="${indexReal}">

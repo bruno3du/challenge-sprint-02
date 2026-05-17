@@ -37,7 +37,7 @@ function carregarPerfil() {
   const usuario = get("login");
   if (!usuario) {
     alert("Nenhum usuário logado.");
-    window.location.href = "/login.html";
+    window.location.href = "./index.html";
     return null;
   }
 

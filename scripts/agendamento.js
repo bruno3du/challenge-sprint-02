@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const login = get("login");
       if (!login) {
         alert("Nenhum usuário logado.");
-        window.location.href = "login.html";
+        window.location.href = "./index.html";
         return;
       }
       const usuarios = get("usuarios") || [];
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       btnConfirmar.innerHTML = textoOriginal;
       btnConfirmar.disabled = false;
-      window.location.href = "consultas.html";
+      window.location.href = "./consultas.html";
     });
   }
 

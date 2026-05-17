@@ -112,7 +112,7 @@ function initLoginForm() {
     if (loginUser(email.value, password.value)) {
       setFormMessage(form, "Login validado com sucesso.", "success");
 
-      window.location.href = "/consultas.html";
+      window.location.href = "./consultas.html";
     } else {
       setFormMessage(form, "Email ou senha incorretos.", "error");
     }
@@ -200,7 +200,7 @@ function initRegisterForm() {
     save("login", novoUsuario);
 
     form.reset();
-    window.location.href = "home.html";
+    window.location.href = "./home.html";
   });
 }
 
