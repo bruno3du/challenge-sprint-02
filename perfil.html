@@ -101,22 +101,22 @@
         <!-- PAGE -->
         <div class="px-5 pb-5">
           <!-- CARD -->
-          <section class="profile-card">
+          <section class="profile-card rounded-4 shadow overflow-hidden border">
             <!-- HEADER -->
-            <div class="profile-header">
-              <div class="profile-user">
-                <div class="profile-avatar" id="profileAvatar">A</div>
+            <div class="profile-header d-flex align-items-center justify-content-between p-4 p-md-5">
+              <div class="profile-user d-flex align-items-center gap-4">
+                <div class="profile-avatar d-flex align-items-center justify-content-center fw-bold" id="profileAvatar">A</div>
 
                 <div>
-                  <h2 id="profileName">Alexa Rawles</h2>
+                  <h2 id="profileName" class="m-0 fw-semibold">Alexa Rawles</h2>
 
-                  <p id="profileEmail">alexarawles@gmail.com</p>
+                  <p id="profileEmail" class="mt-1 mb-0">alexarawles@gmail.com</p>
                 </div>
               </div>
 
               <button
                 type="button"
-                class="btn btn-primary profile-btn"
+                class="btn btn-primary profile-btn d-inline-flex align-items-center gap-2"
                 id="btnAtualizar"
               >
                 <i class="bi bi-pencil"></i>
@@ -125,7 +125,7 @@
             </div>
 
             <!-- BODY -->
-            <div class="profile-body">
+            <div class="profile-body p-4 p-md-5">
               <div class="profile-grid">
                 <div class="form-group">
                   <label for="firstName">Nome</label>

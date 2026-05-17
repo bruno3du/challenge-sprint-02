@@ -284,17 +284,7 @@
 /* ── MAIN CONTENT ───────────────────────────── */
 
 .contenth2 {
-  text-align: center;
-  margin: 0 0 var(--s-5);
-  padding: var(--s-4) 0 0;
   font-size: 22px;
-  font-weight: var(--fw-semi);
-}
-.opcoes {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--s-5);
-  padding: 0 var(--s-6);
 }
 .card-icon,
 .card-icon-heart,
@@ -366,12 +356,6 @@
   grid-template-columns: 1fr auto 1fr;
   column-gap: var(--s-7);
   align-items: center;
-  padding: var(--s-6) var(--s-6);
-}
-.lado {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
 }
 .lado.masculino .card {
   background-color: var(--card-blue-bg);

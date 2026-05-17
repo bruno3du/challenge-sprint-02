@@ -388,36 +388,17 @@ header {
 }
 .benefits-bar {
   background: var(--hero-gradient);
-  border-radius: var(--r-lg);
-  padding: 0 24px;
-  box-shadow: var(--sh-1);
-  margin: 20px 24px;
   height: 110px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  transition: none;
 }
 
 .benefits-bar h2 {
-  margin-left: 16px;
-  font-size: 20px;
-  font-weight: var(--fw-bold);
   color: var(--ink-900);
 }
 
 .points-bar {
-  width: auto;
-  margin: 0 24px 20px;
   height: 130px;
   background: var(--card-mint-bg);
   border: 1px solid var(--card-mint-edge);
-  border-radius: var(--r-lg);
-  padding: 16px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: var(--sh-1);
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -433,28 +414,11 @@ header {
 }
 
 .points-left {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
   color: var(--card-green-ink);
 }
 
-.points-title {
-  margin-left: 16px;
-  font-size: 18px;
-  font-weight: var(--fw-semi);
-}
-
-.points-value-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
 .points-value {
-  margin-left: 16px;
   font-size: 30px;
-  font-weight: var(--fw-bold);
 }
 
 .points-icon {
@@ -463,46 +427,15 @@ header {
   border-radius: 50%;
   width: 28px;
   height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: var(--fw-bold);
-}
-
-.points-right a {
-  color: var(--primary);
-  font-size: var(--ts-body);
-  text-decoration: none;
-  cursor: pointer;
-  margin-right: 16px;
-}
-.points-right a:hover {
-  text-decoration: underline;
-}
-.rewards-grid {
-  margin: 0 24px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  padding: 8px 0 40px;
 }
 
 .reward-card {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  border-radius: var(--r-md);
-  padding: var(--s-5);
-  box-shadow: var(--sh-1);
   text-align: left;
   font-weight: var(--fw-semi);
   transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
 .reward-card .redeem-btn {
-  align-self: flex-end;
-  margin-top: auto;
   transition: all 0.3s ease;
 }
 
@@ -568,9 +501,6 @@ header {
   margin-left: 10px;
 }
 .cost {
-  margin: 8px;
-  align-self: flex-end;
-  font-size: 14px;
   color: var(--ink-700);
 }
 
@@ -615,12 +545,8 @@ body.dark-mode .reward-card {
   filter: brightness(1.1);
 }
 .cupons-ativos {
-  margin: 0 24px 20px;
-  padding: 20px 24px;
   background: var(--surface);
   border: 1px solid var(--ink-150);
-  border-radius: var(--r-lg);
-  box-shadow: var(--sh-1);
 }
 .cupons-title {
   font-size: 18px;
