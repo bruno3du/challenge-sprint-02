@@ -3,10 +3,16 @@ const seed = () => {
   const usuarios = [
     {
       nome: "John Doe",
+      sobrenome: "",
       email: "john.doe@example.com",
       senha: "12345678",
       cpf: "12345678900",
+      rg: "",
+      dataNascimento: "",
       endereco: "Rua Local, 300",
+      cidade: "",
+      estado: "",
+      cep: "",
       plano: "basic",
       consultas: [
         {
@@ -39,10 +45,16 @@ const seed = () => {
     },
     {
       nome: "Maria Silva",
+      sobrenome: "",
       email: "maria.silva@example.com",
       senha: "12345678",
       cpf: "23456789011",
+      rg: "",
+      dataNascimento: "",
       endereco: "Av. Paulista, 1000",
+      cidade: "",
+      estado: "",
+      cep: "",
       plano: "premium",
       consultas: [
         {
@@ -66,20 +78,32 @@ const seed = () => {
     },
     {
       nome: "Carlos Souza",
+      sobrenome: "",
       email: "carlos.souza@example.com",
       senha: "12345678",
       cpf: "34567890122",
+      rg: "",
+      dataNascimento: "",
       endereco: "Rua das Flores, 45",
+      cidade: "",
+      estado: "",
+      cep: "",
       plano: "basic",
       consultas: [],
       premiacoes: [],
     },
     {
       nome: "Ana Pereira",
+      sobrenome: "",
       email: "ana.pereira@example.com",
       senha: "12345678",
       cpf: "45678901233",
+      rg: "",
+      dataNascimento: "",
       endereco: "Rua XV de Novembro, 200",
+      cidade: "",
+      estado: "",
+      cep: "",
       plano: "premium",
       consultas: [
         {
@@ -96,10 +120,16 @@ const seed = () => {
     },
     {
       nome: "Pedro Santos",
+      sobrenome: "",
       email: "pedro.santos@example.com",
       senha: "12345678",
       cpf: "56789012344",
+      rg: "",
+      dataNascimento: "",
       endereco: "Rua Itapeva, 80",
+      cidade: "",
+      estado: "",
+      cep: "",
       plano: "basic",
       consultas: [],
       premiacoes: [],

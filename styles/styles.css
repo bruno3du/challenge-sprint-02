@@ -235,9 +235,28 @@
 .cal-cell:hover { background: var(--ink-50); }
 .cal-cell.is-muted { opacity: 0.4; }
 .cal-cell.is-empty { opacity: 0.35; }
+.cal-cell.is-past {
+  cursor: not-allowed;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--ink-50, #f5f5f7) 0,
+    var(--ink-50, #f5f5f7) 6px,
+    var(--ink-100, #ececf0) 6px,
+    var(--ink-100, #ececf0) 12px
+  );
+}
+.cal-cell.is-past .cal-num { color: var(--ink-400, #b5b5bd); text-decoration: line-through; }
+.cal-cell.is-past .cal-pill {
+  opacity: 0.35;
+  filter: grayscale(1);
+  cursor: not-allowed;
+}
+.cal-cell.is-past .cal-more { display: none; }
+.cal-cell.is-today { box-shadow: inset 0 0 0 2px var(--primary, #6c5ce7); }
+.cal-cell.is-today .cal-num { color: var(--primary, #6c5ce7); font-weight: var(--fw-semi, 600); }
 .cal-cell { position: relative; }
 .cal-content {
-  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -254,6 +273,8 @@
   top: 32px;
   left: 4px;
   right: 4px;
+  max-height: calc(100vh - 24px);
+  overflow-y: auto;
   background: var(--surface, #fff);
   padding: 8px;
   border: 1px solid var(--ink-200);
@@ -263,6 +284,10 @@
 .cal-cell.is-expanded .cal-pills-wrap {
   max-height: none;
   overflow: visible;
+}
+.cal-cell.is-expanded.is-expand-up .cal-content {
+  top: auto;
+  bottom: 4px;
 }
 .cal-more {
   position: absolute;

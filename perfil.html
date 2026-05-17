@@ -105,16 +105,20 @@
             <!-- HEADER -->
             <div class="profile-header">
               <div class="profile-user">
-                <div class="profile-avatar">A</div>
+                <div class="profile-avatar" id="profileAvatar">A</div>
 
                 <div>
-                  <h2>Alexa Rawles</h2>
+                  <h2 id="profileName">Alexa Rawles</h2>
 
-                  <p>alexarawles@gmail.com</p>
+                  <p id="profileEmail">alexarawles@gmail.com</p>
                 </div>
               </div>
 
-              <button class="btn btn-primary profile-btn">
+              <button
+                type="button"
+                class="btn btn-primary profile-btn"
+                id="btnAtualizar"
+              >
                 <i class="bi bi-pencil"></i>
                 Atualizar
               </button>
@@ -124,57 +128,53 @@
             <div class="profile-body">
               <div class="profile-grid">
                 <div class="form-group">
-                  <label>Nome</label>
-                  <input type="text" class="input" value="Alexa" />
+                  <label for="firstName">Nome</label>
+                  <input id="firstName" type="text" class="input" />
                 </div>
 
                 <div class="form-group">
-                  <label>Sobrenome</label>
-                  <input type="text" class="input" value="Rawles" />
+                  <label for="lastName">Sobrenome</label>
+                  <input id="lastName" type="text" class="input" />
                 </div>
 
                 <div class="form-group">
-                  <label>CPF</label>
-                  <input type="text" class="input" value="000.000.000-00" />
+                  <label for="cpf">CPF</label>
+                  <input id="cpf" type="text" class="input" />
                 </div>
 
                 <div class="form-group">
-                  <label>RG</label>
-                  <input type="text" class="input" value="00.000.000-0" />
+                  <label for="rg">RG</label>
+                  <input id="rg" type="text" class="input" />
                 </div>
 
                 <div class="form-group">
-                  <label>Data de Nascimento</label>
-                  <input type="text" class="input" value="12/04/1995" />
+                  <label for="dob">Data de Nascimento</label>
+                  <input id="dob" type="text" class="input" />
                 </div>
 
                 <div class="form-group">
-                  <label>E-mail</label>
-                  <input
-                    type="email"
-                    class="input"
-                    value="alexarawles@gmail.com"
-                  />
+                  <label for="email">E-mail</label>
+                  <input id="email" type="email" class="input" />
                 </div>
 
                 <div class="form-group">
-                  <label>Endereço</label>
-                  <input type="text" class="input" value="Av. Brasil, 1220" />
+                  <label for="address">Endereço</label>
+                  <input id="address" type="text" class="input" />
                 </div>
 
                 <div class="form-group">
-                  <label>Cidade</label>
-                  <input type="text" class="input" value="São Paulo" />
+                  <label for="city">Cidade</label>
+                  <input id="city" type="text" class="input" />
                 </div>
 
                 <div class="form-group">
-                  <label>Estado</label>
-                  <input type="text" class="input" value="SP" />
+                  <label for="state">Estado</label>
+                  <input id="state" type="text" class="input" />
                 </div>
 
                 <div class="form-group">
-                  <label>CEP</label>
-                  <input type="text" class="input" value="01310-100" />
+                  <label for="zip">CEP</label>
+                  <input id="zip" type="text" class="input" />
                 </div>
               </div>
             </div>
@@ -182,5 +182,36 @@
         </div>
       </main>
     </div>
+
+    <!-- TOAST -->
+    <div
+      class="toast-container position-fixed top-0 end-0 p-3"
+      style="z-index: 1080"
+    >
+      <div
+        id="perfilToast"
+        class="toast align-items-center text-white bg-success border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body" id="perfilToastBody">
+            Perfil atualizado com sucesso!
+          </div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Fechar"
+          ></button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts/saveUpdateDelete.js"></script>
+    <script src="scripts/formRegister.js"></script>
+    <script src="scripts/perfil.js"></script>
   </body>
 </html>
