@@ -20,6 +20,7 @@
     ></script>
     <link rel="stylesheet" href="./styles/home.css" />
     <link rel="stylesheet" href="./styles/tokens.css" />
+    <script src="./scripts/saveUpdateDelete.js" defer></script>
     <script src="./scripts/common.js" defer></script>
     <script src="./scripts/home.js" defer></script>
 
@@ -78,38 +79,40 @@
           <div class="avatar avatar-gradient">B</div>
         </header>
 
+        <section class="hero-band hero-band-page mt-4 mb-3"></section>
+
         <main id="content-fundo">
           <h2 class="contenth2">O que você gostaria de agendar?</h2>
           <div class="opcoes">
-            <button id="card-consulta">
-              <span class="cardtext">Agendar consulta</span>
+            <button id="card-consulta" class="card-rapido" data-especialidade="Pediatria">
+              <span class="cardtext">Pediatria</span>
               <img
                 src="./assets/img/png-transparent-stethoscope-stethoscope-illustration-planner-icon-dr-logo-dr-appointment-icon.png"
-                alt="Estetoscópio"
+                alt="Pediatria"
                 class="card-icon"
               />
             </button>
-            <button id="card-cirurgia">
-              <span class="cardtext">Agendar cirurgia</span>
+            <button id="card-cirurgia" class="card-rapido" data-especialidade="Cardiologia">
+              <span class="cardtext">Cardiologia</span>
               <img
                 src="./assets/img/heart-icon-md (1).png"
-                alt="Coração"
+                alt="Cardiologia"
                 class="card-icon-heart"
               />
             </button>
-            <button id="card-odontologia">
-              <span class="cardtext">Agendar dentista</span>
+            <button id="card-odontologia" class="card-rapido" data-especialidade="Psiquiatria">
+              <span class="cardtext">Psiquiatria</span>
               <img
                 src="./assets/img/103386 (1).png"
-                alt="Dente"
+                alt="Psiquiatria"
                 class="card-icon"
               />
             </button>
-            <button id="card-exames">
-              <span class="cardtext">Agendar exame</span>
+            <button id="card-exames" class="card-rapido" data-especialidade="Dermatologia">
+              <span class="cardtext">Dermatologia</span>
               <img
                 src="./assets/img/261-2614450_airport-clip-art-black-and-white-download-chemical-reactions-clipart-black-and (1).png"
-                alt="Exame"
+                alt="Dermatologia"
                 class="card-icon-potion"
               />
             </button>

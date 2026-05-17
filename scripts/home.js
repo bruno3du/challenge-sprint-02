@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".card-rapido").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const esp = btn.dataset.especialidade;
+      if (!esp) return;
+      window.location.href = `agendamento.html?especialidade=${encodeURIComponent(esp)}`;
+    });
+  });
+
   const lado1 = document.getElementById("especialidades-lado-1");
   const lado2 = document.getElementById("especialidades-lado-2");
 

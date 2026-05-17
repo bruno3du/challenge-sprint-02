@@ -634,10 +634,92 @@ body.dark-mode .reward-card {
   transition: all 0.3s ease;
   filter: brightness(1.1);
 }
-.points-actions {
+.cupons-ativos {
+  margin: 0 60px 24px;
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1px solid var(--ink-150);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-1);
+}
+.cupons-title {
+  font-size: 18px;
+  font-weight: var(--fw-semi);
+  color: var(--ink-800);
   display: flex;
-  justify-content: flex-end;
-  margin: 20px;
+  align-items: center;
+  gap: 8px;
+}
+.cupons-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.cupom-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--primary-soft);
+  border: 1px dashed var(--primary);
+  border-radius: var(--r-md);
+}
+.cupom-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.cupom-codigo {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, monospace);
+  font-size: 13px;
+  font-weight: var(--fw-bold);
+  color: var(--primary);
+  letter-spacing: 0.5px;
+}
+.cupom-desc {
+  font-size: 14px;
+  color: var(--ink-800);
+  font-weight: var(--fw-semi);
+}
+.cupom-card .btn-usar {
+  background: var(--primary);
+  color: var(--primary-ink);
+  border: none;
+  border-radius: var(--r-pill);
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: var(--fw-semi);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.cupom-card .btn-usar:hover {
+  background: var(--primary-hover);
+}
+
+.reward-card.has-cupom {
+  position: relative;
+  opacity: 0.85;
+}
+.reward-card .badge-ativo {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--primary);
+  color: var(--primary-ink);
+  font-size: 11px;
+  font-weight: var(--fw-bold);
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  letter-spacing: 0.3px;
+}
+.reward-card.has-cupom .redeem-btn[disabled] {
+  background: var(--ink-200);
+  color: var(--ink-500);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 #reset-points {
@@ -661,4 +743,83 @@ body.dark-mode .reward-card {
 #reset-points:active {
   background-color: var(--primary-press);
   transform: scale(0.98);
+}
+
+/* ─── Responsivo ─── */
+.hero-band { height: clamp(72px, 14vw, 120px); }
+
+@media (max-width: 991.98px) {
+  .rewards-grid {
+    grid-template-columns: 1fr;
+    padding: var(--s-4);
+    margin-left: 0;
+    margin-right: 0;
+    gap: var(--s-4);
+  }
+  .benefits-bar,
+  .points-bar {
+    margin-left: var(--s-4);
+    margin-right: var(--s-4);
+    width: auto;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body { padding-bottom: 64px; }
+  main { padding-bottom: 80px !important; }
+  .content { margin-left: 0 !important; padding: 0 var(--s-3) 80px !important; }
+  .topbar {
+    height: auto !important;
+    flex-wrap: wrap;
+    padding: var(--s-3) var(--s-4) !important;
+    gap: var(--s-2) !important;
+  }
+  .topbar h1 { font-size: 20px; }
+  .input-search { width: 100% !important; flex: 1 1 100%; order: 5; }
+  .nav-rail {
+    position: fixed !important;
+    bottom: 0; left: 0; right: 0; top: auto !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    height: 64px;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    padding: 0 var(--s-3) !important;
+    gap: 0 !important;
+    border-right: none !important;
+    border-top: 1px solid var(--ink-150);
+    z-index: 1030;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
+  }
+  .nav-rail .nav-brand { display: none !important; }
+  .nav-item { width: 44px; height: 44px; font-size: 20px; }
+
+  header {
+    flex-wrap: wrap;
+    padding: var(--s-3);
+  }
+  .topbar-row { padding: 0 var(--s-3); }
+  .benefits-bar {
+    height: auto;
+    padding: var(--s-4);
+    margin: var(--s-3);
+  }
+  .benefits-bar h2 { margin-left: 0; font-size: 18px; }
+
+  .points-bar {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s-3);
+    padding: var(--s-4);
+    margin: var(--s-3);
+  }
+  .points-title,
+  .points-value { margin-left: 0; }
+  .points-title { font-size: 18px; }
+  .points-value { font-size: 32px; }
+  .points-right a { margin-right: 0; }
+
+  .cupons-ativos { margin: 0 var(--s-3) var(--s-4); padding: var(--s-4); }
 }

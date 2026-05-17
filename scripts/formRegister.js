@@ -167,6 +167,14 @@ function initRegisterForm() {
       return;
     }
 
+    const usuariosExistentes = get("usuarios") || [];
+    const emailNormalizado = email.value.trim().toLowerCase();
+    if (usuariosExistentes.some((u) => (u.email || "").toLowerCase() === emailNormalizado)) {
+      setFieldError(email, "Este email já está cadastrado.");
+      setFormMessage(form, "Email já cadastrado.", "error");
+      return;
+    }
+
     setFormMessage(form, "Cadastro validado com sucesso.", "success");
     console.log({
       nome: firstName.value,
@@ -178,7 +186,7 @@ function initRegisterForm() {
       plano: plan.value,
     });
 
-    registerUser({
+    const novoUsuario = {
       nome: firstName.value,
       sobrenome: lastName.value,
       email: email.value,
@@ -186,9 +194,13 @@ function initRegisterForm() {
       cpf: cpf.value,
       endereco: address.value,
       plano: plan.value,
-    });
+    };
+
+    registerUser(novoUsuario);
+    save("login", novoUsuario);
 
     form.reset();
+    window.location.href = "home.html";
   });
 }
 

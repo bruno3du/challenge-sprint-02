@@ -20,4 +20,18 @@ const data = () => {
   }
 };
 
-document.addEventListener("DOMContentLoaded", data);
+const atualizarAvatarUsuario = () => {
+  const avatar = document.querySelector(".topbar .avatar");
+  if (!avatar) return;
+  const usuario = typeof get === "function" ? get("login") : null;
+  const nome = (usuario?.nome || usuario?.email || "").trim();
+  const inicial = nome ? nome.charAt(0).toUpperCase() : "?";
+  avatar.textContent = inicial;
+  if (nome) avatar.setAttribute("title", nome);
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  data();
+  atualizarAvatarUsuario();
+});
+

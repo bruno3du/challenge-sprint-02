@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="./styles/tokens.css" />
     <link rel="stylesheet" href="./styles/styles.css" />
 
-    <title>Calendário</title>
+    <title>Agendamento</title>
   </head>
 
   <body>
@@ -50,7 +50,7 @@
         <!-- Topbar -->
         <header class="topbar d-flex align-items-center gap-3 px-5">
           <div class="flex-grow-1">
-            <h1 class="m-0">Calendário</h1>
+            <h1 class="m-0">Agendamento</h1>
             <div class="text-muted-ink small" id="topbar-date"></div>
           </div>
           <input
@@ -91,7 +91,16 @@
                 class="badge text-bg-light border d-none align-items-center gap-2"
               >
                 <span>Especialidade: <strong id="filtro-especialidade-nome"></strong></span>
-                <a href="agendamento.html" aria-label="Limpar filtro" class="text-decoration-none">
+                <a href="#" id="limpar-filtro-especialidade" aria-label="Limpar especialidade" class="text-decoration-none">
+                  <i class="bi bi-x-lg"></i>
+                </a>
+              </span>
+              <span
+                id="filtro-periodo"
+                class="badge text-bg-light border d-none align-items-center gap-2"
+              >
+                <span>Período: <strong id="filtro-periodo-nome"></strong></span>
+                <a href="#" id="limpar-filtro-periodo" aria-label="Limpar período" class="text-decoration-none">
                   <i class="bi bi-x-lg"></i>
                 </a>
               </span>
@@ -145,7 +154,7 @@
         <div class="modal-content schedule-card border-0 p-4 shadow-lg">
           <div class="d-flex align-items-center justify-content-between mb-2">
             <h2 id="filterModalTitle" class="schedule-title m-0">
-              Filtrar por especialidade
+              Filtrar agendamento
             </h2>
             <button
               type="button"
@@ -156,13 +165,20 @@
               <i class="bi bi-x-lg"></i>
             </button>
           </div>
-          <p class="text-muted-ink small mb-4">Escolha uma especialidade</p>
-
+          <p class="text-muted-ink small mb-2">Especialidade</p>
           <div
             id="filter-especialidades-list"
             class="d-flex flex-column gap-2 mb-4"
             role="radiogroup"
             aria-label="Especialidades"
+          ></div>
+
+          <p class="text-muted-ink small mb-2">Período</p>
+          <div
+            id="filter-periodo-list"
+            class="d-flex flex-column gap-2 mb-4"
+            role="radiogroup"
+            aria-label="Período"
           ></div>
 
           <div class="row g-3">
@@ -212,62 +228,14 @@
               <i class="bi bi-x-lg"></i>
             </button>
           </div>
-          <p class="text-muted-ink small mb-4">Horários disponíveis</p>
+          <p class="text-muted-ink small mb-4" id="scheduleModalSubtitle">Horários disponíveis</p>
 
           <div
+            id="schedule-slots-list"
             class="d-flex flex-column gap-2 mb-4"
             role="radiogroup"
             aria-label="Horários disponíveis"
-          >
-            <label
-              class="time-row d-flex align-items-center gap-3 p-3 rounded m-0"
-            >
-              <input type="radio" name="schedule-time" checked />
-              <span class="time-radio"></span>
-              <span class="time-label">13h – 14h</span>
-              <span class="time-doctor ms-auto small">Dr. Lúcio</span>
-            </label>
-            <label
-              class="time-row d-flex align-items-center gap-3 p-3 rounded m-0"
-            >
-              <input type="radio" name="schedule-time" />
-              <span class="time-radio"></span>
-              <span class="time-label">13h – 14h</span>
-              <span class="time-doctor ms-auto small">Dra. Maria</span>
-            </label>
-            <label
-              class="time-row d-flex align-items-center gap-3 p-3 rounded m-0"
-            >
-              <input type="radio" name="schedule-time" />
-              <span class="time-radio"></span>
-              <span class="time-label">14h – 15h</span>
-              <span class="time-doctor ms-auto small">Dr. Silva</span>
-            </label>
-            <label
-              class="time-row d-flex align-items-center gap-3 p-3 rounded m-0"
-            >
-              <input type="radio" name="schedule-time" />
-              <span class="time-radio"></span>
-              <span class="time-label">15h – 16h</span>
-              <span class="time-doctor ms-auto small">Dra. Maria</span>
-            </label>
-            <label
-              class="time-row d-flex align-items-center gap-3 p-3 rounded m-0"
-            >
-              <input type="radio" name="schedule-time" />
-              <span class="time-radio"></span>
-              <span class="time-label">16h – 17h</span>
-              <span class="time-doctor ms-auto small">Dr. Reis</span>
-            </label>
-            <label
-              class="time-row d-flex align-items-center gap-3 p-3 rounded m-0"
-            >
-              <input type="radio" name="schedule-time" />
-              <span class="time-radio"></span>
-              <span class="time-label">17h – 18h</span>
-              <span class="time-doctor ms-auto small">Dra. Maria</span>
-            </label>
-          </div>
+          ></div>
 
           <div class="row g-3">
             <div class="col-6 d-grid">
@@ -280,13 +248,14 @@
               </button>
             </div>
             <div class="col-6 d-grid">
-              <button type="button" class="btn btn-primary">Agendar</button>
+              <button type="button" class="btn btn-primary" id="btn-confirmar-agendamento">Agendar</button>
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <script src="./scripts/saveUpdateDelete.js"></script>
     <script src="./scripts/common.js"></script>
     <script src="./scripts/agendamento.js"></script>
   </body>
