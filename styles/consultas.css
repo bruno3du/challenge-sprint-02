@@ -37,10 +37,13 @@ header h1 {
     text-align: middle;
     background: var(--brand-800);
     height: var(--density-row);
+    justify-content: space-between;
+    padding: 0  var(--s-6);
 }
 
 td, th {
     padding: var(--s-6);
     height: var(--density-row);
     vertical-align: middle;
+    justify-content: space-between;
 }
