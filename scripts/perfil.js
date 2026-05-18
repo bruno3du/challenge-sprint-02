@@ -1,3 +1,43 @@
+//-----------------------------
+// Validação da data
+//-----------------------------
+function validarData (input){
+  
+  if (!input.value) {
+
+    setFieldError(
+      input,
+      "Selecione uma data."
+    );
+
+    return false;
+  }
+
+  setFieldError(input, "");
+
+  return true;
+}
+
+// Validação do RG
+function validateRg(input) {
+
+  const value = input.value.toUpperCase();
+  const regex = /^\d{2}\.\d{3}\.\d{3}-[0-9X]$/;
+  if (!regex.test(value)) {
+
+    setFieldError(
+      input,
+      "Digite um RG valido."
+    );
+
+    return false;
+  }
+
+  setFieldError(input, "");
+
+  return true;
+}
+
 // ------------------------------
 // Perfil: carrega usuário logado, valida e atualiza no localStorage
 // Depende de: saveUpdateDelete.js (save/get) e formRegister.js (validações)
