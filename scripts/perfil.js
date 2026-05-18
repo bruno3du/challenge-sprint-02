@@ -39,196 +39,191 @@ function validateRg(input) {
 }
 
 // ------------------------------
-// Função de validação do perfil
-// Usa funções já existentes do formRegister.js
+// Perfil: carrega usuário logado, valida e atualiza no localStorage
+// Depende de: saveUpdateDelete.js (save/get) e formRegister.js (validações)
 // ------------------------------
+
+const CAMPOS_PERFIL = [
+  "firstName",
+  "lastName",
+  "cpf",
+  "rg",
+  "dob",
+  "email",
+  "address",
+  "city",
+  "state",
+  "zip",
+];
+
+const MAPA_CAMPO_USUARIO = {
+  firstName: "nome",
+  lastName: "sobrenome",
+  cpf: "cpf",
+  rg: "rg",
+  dob: "dataNascimento",
+  email: "email",
+  address: "endereco",
+  city: "cidade",
+  state: "estado",
+  zip: "cep",
+};
+
+function getInput(id) {
+  return document.getElementById(id);
+}
+
+function carregarPerfil() {
+  const usuario = get("login");
+  if (!usuario) {
+    alert("Nenhum usuário logado.");
+    window.location.href = "./index.html";
+    return null;
+  }
+
+  CAMPOS_PERFIL.forEach((id) => {
+    const input = getInput(id);
+    if (!input) return;
+    const chave = MAPA_CAMPO_USUARIO[id];
+    input.value = usuario[chave] ?? "";
+  });
+
+  const nomeCompleto = [usuario.nome, usuario.sobrenome].filter(Boolean).join(" ");
+  const headerNome = document.getElementById("profileName");
+  const headerEmail = document.getElementById("profileEmail");
+  const headerAvatar = document.getElementById("profileAvatar");
+  if (headerNome) headerNome.textContent = nomeCompleto || usuario.nome || "";
+  if (headerEmail) headerEmail.textContent = usuario.email || "";
+  if (headerAvatar && (nomeCompleto || usuario.nome)) {
+    headerAvatar.textContent = (nomeCompleto || usuario.nome).trim().charAt(0).toUpperCase();
+  }
+
+  return usuario;
+}
+
+function getErrorEl(input) {
+  const group = input.closest(".form-group");
+  if (!group) return null;
+  let el = group.querySelector(".field-error");
+  if (!el) {
+    el = document.createElement("span");
+    el.className = "field-error";
+    group.appendChild(el);
+  }
+  return el;
+}
+
+function setFieldError(id, mensagem) {
+  const input = getInput(id);
+  if (!input) return;
+  const errEl = getErrorEl(input);
+  input.classList.toggle("is-invalid", Boolean(mensagem));
+  if (errEl) errEl.textContent = mensagem || "";
+}
+
+function limparErros() {
+  CAMPOS_PERFIL.forEach((id) => setFieldError(id, ""));
+}
+
 function validarPerfil() {
-  const email = document.getElementById("email");
-  const cpf = document.getElementById("cpf");
-  const rg = document.getElementById("rg");
-  const nome = document.getElementById("firstName");
-  const sobrenome = document.getElementById("lastName");
-  const nascimento = document.getElementById("dob");
+  limparErros();
+  const nome = getInput("firstName").value.trim();
+  const sobrenome = getInput("lastName").value.trim();
+  const email = getInput("email").value.trim();
+  const cpf = getInput("cpf").value.replace(/\D/g, "");
+  const endereco = getInput("address").value.trim();
 
-  // Executa validações básicas
-  const validacoes = [
-    validateRequired(nome, "Informe o primeiro nome."),   // Verifica se o nome foi preenchido
-    validateRequired(sobrenome, "Informe o sobrenome."),  // Verifica se o sobrenome foi preenchido
-    validateEmail(email),                                 // Valida formato do email
-    validateCpf(cpf),
-    validateRg(rg),
-    validarData(nascimento)
-  ];
+  let ok = true;
+  if (!nome) { setFieldError("firstName", "Informe o primeiro nome."); ok = false; }
+  if (!sobrenome) { setFieldError("lastName", "Informe o sobrenome."); ok = false; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setFieldError("email", "Digite um e-mail válido."); ok = false; }
+  if (cpf.length !== 11) { setFieldError("cpf", "Digite um CPF com 11 números."); ok = false; }
+  if (!endereco) { setFieldError("address", "Informe o endereço."); ok = false; }
 
-  // Retorna true se todas as validações passaram
-  return !validacoes.includes(false);
+  return ok;
 }
 
-// Formata data para padrão BR
-function formatarDataBR(data) {
+function mostrarToast(mensagem, tipo = "success") {
+  const toastEl = document.getElementById("perfilToast");
+  const body = document.getElementById("perfilToastBody");
+  if (!toastEl || !body) {
+    alert(mensagem);
+    return;
+  }
+  body.textContent = mensagem;
+  toastEl.classList.remove("bg-success", "bg-danger");
+  toastEl.classList.add(tipo === "error" ? "bg-danger" : "bg-success");
 
-  if (!data) return "";
-
-  const partes = data.split("-");
-
-  return `${partes[2]}/${partes[1]}/${partes[0]}`;
+  if (window.bootstrap && bootstrap.Toast) {
+    bootstrap.Toast.getOrCreateInstance(toastEl, { delay: 3000 }).show();
+  } else {
+    toastEl.classList.add("show");
+    setTimeout(() => toastEl.classList.remove("show"), 3000);
+  }
 }
 
-
-// ------------------------------
-// Função para coletar dados do formulário
-// ------------------------------
 function coletarDados() {
-  const dados = {
-    nome: document.getElementById("firstName").value,
-    sobrenome: document.getElementById("lastName").value,
-    cpf: document.getElementById("cpf").value,
-    rg: document.getElementById("rg").value,
-    nascimento: document.getElementById("dob").value,
-    email: document.getElementById("email").value,
-    endereco: document.getElementById("address").value,
-    cidade: document.getElementById("city").value,
-    estado: document.getElementById("state").value,
-    cep: document.getElementById("zip").value
-  };
-
-  console.log("Dados coletados:", dados);
+  const dados = {};
+  CAMPOS_PERFIL.forEach((id) => {
+    const input = getInput(id);
+    if (!input) return;
+    dados[MAPA_CAMPO_USUARIO[id]] = input.value.trim();
+  });
   return dados;
 }
 
-// ------------------------------
-// Evento do botão Atualizar
-// ------------------------------
+function atualizarUsuarioNoStorage(usuarioOriginal, novosDados) {
+  const usuarios = get("usuarios") || [];
+  const idx = usuarios.findIndex(
+    (u) => u.cpf === usuarioOriginal.cpf || u.email === usuarioOriginal.email,
+  );
+
+  const atualizado = { ...usuarioOriginal, ...novosDados };
+
+  if (idx >= 0) {
+    usuarios[idx] = { ...usuarios[idx], ...novosDados };
+    save("usuarios", usuarios);
+  }
+
+  save("login", atualizado);
+  return atualizado;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  const btnAtualizar = document.getElementById("update-profile-btn");
-  const cpf = document.getElementById("cpf");
-  const rg = document.getElementById("rg");
-  const cep = document.getElementById("zip");
-  const email = document.getElementById("email")
+  let usuarioAtual = carregarPerfil();
+  if (!usuarioAtual) return;
 
-  // CPF
-  cpf.addEventListener("input", () => {
-    let value = cpf.value.replace(/\D/g, "");
-    value = value.slice(0, 11);
-    value = value
-      .replace(/(\d{3})(\d)/, "$1.$2")
-      .replace(/(\d{3})(\d)/, "$1.$2")
-      .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+  const cpfInput = getInput("cpf");
+  if (cpfInput && typeof formatCpf === "function") {
+    cpfInput.addEventListener("input", () => {
+      cpfInput.value = formatCpf(cpfInput.value);
+    });
+  }
 
-    cpf.value = value;
-  });  
+  const btn = document.getElementById("btnAtualizar");
+  if (!btn) return;
 
-
-  // RG
-  rg.addEventListener("input", () => {
-    let value = rg.value.toUpperCase().replace(/[^0-9X]/g, "");
-    
-    value = value.slice(0, 9);
-    
-    value = value
-      .replace(/(\d{2})(\d)/, "$1.$2")
-      .replace(/(\d{3})(\d)/, "$1.$2")
-      .replace(/(\d{3})([0-9X])$/, "$1-$2");
-
-    rg.value = value;
-  });
-
-  // CEP
-  cep.addEventListener("input", () => {
-    let value = cep.value.replace(/\D/g, "").slice(0, 8);
-
-    value = value.replace(/(\d{5})(\d)/, "$1-$2");
-
-    cep.value = value;
-  });
-
-  //EMAIL
-  email.addEventListener("input", () => {
-    validateEmail(email);
-  });
-
-  btnAtualizar.addEventListener("click", (e) => {
+  btn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    // Primeiro valida os campos
-    if (!validarPerfil()) {
-      alert("Revise os campos destacados.");
-      return;
-    }
+    if (!validarPerfil()) return;
 
-    // Depois coleta os dados
     const dados = coletarDados();
-
-    // Salva no localStorage
-    save("perfil", dados);
-
-    save("login", dados);
-
-    // Atualiza cabeçalho
-    document.querySelector(".profile-user h2").textContent =
-      `${dados.nome} ${dados.sobrenome}`;
-
-    document.querySelector(".profile-user p").textContent =
-      dados.email;
-
-    // Atualiza avatar
-    const avatarLetter = dados.nome
-      ? dados.nome.charAt(0).toUpperCase()
-      : "A";
-
-    document.querySelector(".profile-avatar").textContent =
-      avatarLetter;
-
-    document.querySelector(".avatar").textContent =
-      avatarLetter;
-
-    alert("Dados atualizados com sucesso!");
-
-    // Aguarda salvar antes de redirecionar
-    setTimeout(() => {
-      window.location.href = "/home.html";
-    }, 1000);
+    usuarioAtual = atualizarUsuarioNoStorage(usuarioAtual, dados);
+    carregarPerfil();
+    mostrarToast("Perfil atualizado com sucesso!");
   });
-});
 
-// ------------------------------
-// Carrega dados salvos
-// ------------------------------
-document.addEventListener("DOMContentLoaded", () => {
-
-  const usuario = get("perfil") || get("login");
-
-  if (!usuario) return;
-
-  document.getElementById("firstName").value =
-    usuario.nome || "";
-
-  document.getElementById("lastName").value =
-    usuario.sobrenome || "";
-
-  document.getElementById("cpf").value =
-    usuario.cpf || "";
-
-  document.getElementById("rg").value =
-    usuario.rg || "";
-
-  document.getElementById("dob").value =
-    usuario.nascimento || "";
-
-  document.getElementById("email").value =
-    usuario.email || "";
-
-  document.getElementById("address").value =
-    usuario.endereco || "";
-
-  document.getElementById("city").value =
-    usuario.cidade || "";
-
-  document.getElementById("state").value =
-    usuario.estado || "";
-
-  document.getElementById("zip").value =
-    usuario.cep || "";
-
+  CAMPOS_PERFIL.forEach((id) => {
+    const input = getInput(id);
+    if (!input) return;
+    input.addEventListener("input", () => setFieldError(id, ""));
+    input.addEventListener("keydown", (ev) => {
+      if (ev.key === "Enter") {
+        ev.preventDefault();
+        btn.click();
+      }
+    });
+  });
 });
 

@@ -20,6 +20,7 @@
     ></script>
     <link rel="stylesheet" href="./styles/home.css" />
     <link rel="stylesheet" href="./styles/tokens.css" />
+    <script src="./scripts/saveUpdateDelete.js" defer></script>
     <script src="./scripts/common.js" defer></script>
     <script src="./scripts/home.js" defer></script>
 
@@ -30,19 +31,19 @@
     <div class="d-flex min-vh-100">
       <aside class="nav-rail d-flex flex-column align-items-center gap-2 py-3">
         <div class="nav-brand mb-3">E</div>
-        <a class="nav-item active" href="home.html" title="Início" aria-label="Início">
+        <a class="nav-item active" href="./home.html" title="Início" aria-label="Início">
           <i class="bi bi-house-door-fill"></i>
         </a>
-        <a class="nav-item" href="agendamento.html" title="Agendar" aria-label="Agendar">
+        <a class="nav-item" href="./agendamento.html" title="Agendar" aria-label="Agendar">
           <i class="bi bi-calendar-plus"></i>
         </a>
-        <a class="nav-item" href="consultas.html" title="Consultas" aria-label="Consultas">
+        <a class="nav-item" href="./consultas.html" title="Consultas" aria-label="Consultas">
           <i class="bi bi-clock-history"></i>
         </a>
-        <a class="nav-item" href="rewards.html" title="Recompensas" aria-label="Recompensas">
+        <a class="nav-item" href="./rewards.html" title="Recompensas" aria-label="Recompensas">
           <i class="bi bi-gift"></i>
         </a>
-        <a class="nav-item" href="perfil.html" title="Perfil" aria-label="Perfil">
+        <a class="nav-item" href="./perfil.html" title="Perfil" aria-label="Perfil">
           <i class="bi bi-person-circle"></i>
         </a>
       </aside>
@@ -68,61 +69,64 @@
           >
             <i class="bi bi-bell"></i>
           </button>
-          <button
-            id="dark-toggle"
-            class="btn btn-icon rounded-pill"
-            aria-label="Alternar tema"
-          >
-            <i class="bi bi-moon"></i>
-          </button>
           <div class="avatar avatar-gradient">B</div>
         </header>
 
+        <section class="hero-band hero-band-page mt-4 mb-3"></section>
+
         <main id="content-fundo">
-          <h2 class="contenth2">O que você gostaria de agendar?</h2>
-          <div class="opcoes">
-            <button id="card-consulta">
-              <span class="cardtext">Agendar consulta</span>
-              <img
-                src="./assets/img/png-transparent-stethoscope-stethoscope-illustration-planner-icon-dr-logo-dr-appointment-icon.png"
-                alt="Estetoscópio"
-                class="card-icon"
-              />
-            </button>
-            <button id="card-cirurgia">
-              <span class="cardtext">Agendar cirurgia</span>
-              <img
-                src="./assets/img/heart-icon-md (1).png"
-                alt="Coração"
-                class="card-icon-heart"
-              />
-            </button>
-            <button id="card-odontologia">
-              <span class="cardtext">Agendar dentista</span>
-              <img
-                src="./assets/img/103386 (1).png"
-                alt="Dente"
-                class="card-icon"
-              />
-            </button>
-            <button id="card-exames">
-              <span class="cardtext">Agendar exame</span>
-              <img
-                src="./assets/img/261-2614450_airport-clip-art-black-and-white-download-chemical-reactions-clipart-black-and (1).png"
-                alt="Exame"
-                class="card-icon-potion"
-              />
-            </button>
+          <h2 class="contenth2 text-center fw-semibold mt-3 mb-4">O que você gostaria de agendar?</h2>
+          <div class="opcoes row row-cols-1 row-cols-sm-2 g-4 px-4">
+            <div class="col">
+              <button id="card-consulta" class="card-rapido w-100" data-especialidade="Pediatria">
+                <span class="cardtext">Pediatria</span>
+                <img
+                  src="./assets/img/png-transparent-stethoscope-stethoscope-illustration-planner-icon-dr-logo-dr-appointment-icon.png"
+                  alt="Pediatria"
+                  class="card-icon"
+                />
+              </button>
+            </div>
+            <div class="col">
+              <button id="card-cirurgia" class="card-rapido w-100" data-especialidade="Cardiologia">
+                <span class="cardtext">Cardiologia</span>
+                <img
+                  src="./assets/img/heart-icon-md (1).png"
+                  alt="Cardiologia"
+                  class="card-icon-heart"
+                />
+              </button>
+            </div>
+            <div class="col">
+              <button id="card-odontologia" class="card-rapido w-100" data-especialidade="Psiquiatria">
+                <span class="cardtext">Psiquiatria</span>
+                <img
+                  src="./assets/img/103386 (1).png"
+                  alt="Psiquiatria"
+                  class="card-icon"
+                />
+              </button>
+            </div>
+            <div class="col">
+              <button id="card-exames" class="card-rapido w-100" data-especialidade="Dermatologia">
+                <span class="cardtext">Dermatologia</span>
+                <img
+                  src="./assets/img/261-2614450_airport-clip-art-black-and-white-download-chemical-reactions-clipart-black-and (1).png"
+                  alt="Dermatologia"
+                  class="card-icon-potion"
+                />
+              </button>
+            </div>
           </div>
 
-          <section class="especialidades">
-            <div class="lado masculino" id="especialidades-lado-1"></div>
+          <section class="especialidades p-4">
+            <div class="lado masculino d-flex flex-column gap-3" id="especialidades-lado-1"></div>
             <img
               src="./assets/img/simbolos-de-genero-iconografia-masculina-e-feminina-para-diversas-aplicacoes_1281599-55652 (1).png"
               alt="Símbolo de gênero"
               class="simbolo-genero"
             />
-            <div class="lado feminino" id="especialidades-lado-2"></div>
+            <div class="lado feminino d-flex flex-column gap-3" id="especialidades-lado-2"></div>
           </section>
         </main>
       </main>

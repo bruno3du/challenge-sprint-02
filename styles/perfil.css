@@ -2,37 +2,13 @@
 
 .profile-card{
   background:var(--surface);
-
-  border-radius:var(--r-xl);
-
-  border:1px solid var(--ink-200);
-
-  overflow:hidden;
-
-  box-shadow:var(--sh-2);
 }
 
 /* HEADER */
 
 .profile-header{
   min-height:170px;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  padding:var(--s-7);
-
   background:var(--hero-gradient);
-}
-
-/* USER */
-
-.profile-user{
-  display:flex;
-  align-items:center;
-
-  gap:var(--s-6);
 }
 
 .profile-user h2{
@@ -58,25 +34,14 @@
 .profile-avatar{
   width:88px;
   height:88px;
-
   border-radius:50%;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
   background:linear-gradient(
     135deg,
     var(--brand-500),
     var(--brand-700)
   );
-
   color:white;
-
   font-size:32px;
-
-  font-weight:var(--fw-bold);
-
   box-shadow:var(--sh-2);
 }
 
@@ -84,22 +49,9 @@
 
 .profile-btn{
   height:44px;
-
   border-radius:var(--r-lg);
-
   padding:0 var(--s-5);
-
   font-size:14px;
-
-  display:flex;
-  align-items:center;
-  gap:var(--s-2);
-}
-
-/* BODY */
-
-.profile-body{
-  padding:var(--s-7);
 }
 
 /* GRID */
@@ -119,6 +71,18 @@
   flex-direction:column;
 }
 
+.form-group .field-error{
+  margin-top:var(--s-1);
+  font-size:12px;
+  color:#dc3545;
+  min-height:16px;
+}
+
+.form-group input.is-invalid{
+  border-color:#dc3545;
+  box-shadow:0 0 0 2px rgba(220,53,69,0.15);
+}
+
 .form-group label{
   margin-bottom:var(--s-2);
 
@@ -131,13 +95,21 @@
   font-weight:var(--fw-medium);
 }
 
-.field-error{
-    min-height: 16px;
-    margin-top: 4px;
-    font-size: 12px;
-    color: #dc3545;
+/* ─── Responsivo ─── */
+@media (max-width: 767.98px) {
+  .profile-grid { grid-template-columns: 1fr; gap: var(--s-4); }
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s-4);
+    padding: var(--s-5);
+    min-height: 0;
   }
+  .profile-user { gap: var(--s-4); }
+  .profile-avatar { width: 64px; height: 64px; font-size: 24px; }
+  .profile-body { padding: var(--s-5); }
+}
 
-  .field.is-invalid .input {
-    border-color: #dc3545;
-  }
+@media (max-width: 575.98px) {
+  .profile-user { flex-direction: column; align-items: flex-start; text-align: left; }
+}

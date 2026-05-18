@@ -20,4 +20,40 @@ const data = () => {
   }
 };
 
-document.addEventListener("DOMContentLoaded", data);
+const atualizarAvatarUsuario = () => {
+  const avatar = document.querySelector(".topbar .avatar");
+  if (!avatar) return;
+  const usuario = typeof get === "function" ? get("login") : null;
+  const nome = (usuario?.nome || usuario?.email || "").trim();
+  const inicial = nome ? nome.charAt(0).toUpperCase() : "?";
+  avatar.textContent = inicial;
+  if (nome) avatar.setAttribute("title", nome);
+};
+
+const adicionarBotaoLogout = () => {
+  const topbar = document.querySelector(".topbar");
+  if (!topbar || topbar.querySelector("#btn-logout")) return;
+  const btn = document.createElement("button");
+  btn.id = "btn-logout";
+  btn.type = "button";
+  btn.className = "btn btn-icon rounded-pill";
+  btn.setAttribute("aria-label", "Sair");
+  btn.title = "Sair";
+  btn.innerHTML = '<i class="bi bi-box-arrow-right"></i>';
+  btn.addEventListener("click", () => {
+    if (!confirm("Deseja realmente sair?")) return;
+    if (typeof remove === "function") remove("login");
+    else window.localStorage.removeItem("login");
+    window.location.href = "./index.html";
+  });
+  const avatar = topbar.querySelector(".avatar");
+  if (avatar) topbar.insertBefore(btn, avatar);
+  else topbar.appendChild(btn);
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  data();
+  atualizarAvatarUsuario();
+  adicionarBotaoLogout();
+});
+

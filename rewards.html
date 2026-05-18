@@ -18,30 +18,52 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="/styles/tokens.css" />
-    <link rel="stylesheet" href="/styles/rewards.css" />
-    <script src="./script/rewards.js"></script>
+    <link rel="stylesheet" href="./styles/tokens.css" />
+    <link rel="stylesheet" href="./styles/rewards.css" />
+    <script src="./scripts/saveUpdateDelete.js" defer></script>
+    <script src="./scripts/common.js" defer></script>
+    <script src="./scripts/rewards.js" defer></script>
 
     <title>Recompensas</title>
   </head>
 
-<body>
+  <body>
     <div class="d-flex min-vh-100">
       <aside class="nav-rail d-flex flex-column align-items-center gap-2 py-3">
         <div class="nav-brand mb-3">E</div>
-        <a class="nav-item" href="home.html" title="Início" aria-label="Início">
+        <a class="nav-item" href="./home.html" title="Início" aria-label="Início">
           <i class="bi bi-house-door-fill"></i>
         </a>
-        <a class="nav-item" href="agendamento.html" title="Agendar" aria-label="Agendar">
+        <a
+          class="nav-item"
+          href="./agendamento.html"
+          title="Agendar"
+          aria-label="Agendar"
+        >
           <i class="bi bi-calendar-plus"></i>
         </a>
-        <a class="nav-item" href="consultas.html" title="Consultas" aria-label="Consultas">
+        <a
+          class="nav-item"
+          href="./consultas.html"
+          title="Consultas"
+          aria-label="Consultas"
+        >
           <i class="bi bi-clock-history"></i>
         </a>
-        <a class="nav-item active" href="rewards.html" title="Recompensas" aria-label="Recompensas">
+        <a
+          class="nav-item active"
+          href="./rewards.html"
+          title="Recompensas"
+          aria-label="Recompensas"
+        >
           <i class="bi bi-gift"></i>
         </a>
-        <a class="nav-item" href="perfil.html" title="Perfil" aria-label="Perfil">
+        <a
+          class="nav-item"
+          href="./perfil.html"
+          title="Perfil"
+          aria-label="Perfil"
+        >
           <i class="bi bi-person-circle"></i>
         </a>
       </aside>
@@ -50,7 +72,7 @@
         <header class="topbar d-flex align-items-center gap-3 px-5">
           <div class="flex-grow-1">
             <h1 class="m-0">Recompensas</h1>
-            <div class="text-muted-ink small">Terça-feira, 17 de julho de 2026</div>
+            <div class="text-muted-ink small"></div>
           </div>
           <input
             type="text"
@@ -58,70 +80,105 @@
             placeholder="Pesquisar"
             aria-label="Pesquisar"
           />
-          <button type="button" class="btn btn-icon rounded-pill" aria-label="Notificações">
+          <button
+            type="button"
+            class="btn btn-icon rounded-pill"
+            aria-label="Notificações"
+          >
             <i class="bi bi-bell"></i>
-          </button>
-          <button id="dark-toggle" class="btn btn-icon rounded-pill" aria-label="Alternar tema">
-            <i class="bi bi-moon"></i>
           </button>
           <div class="avatar avatar-gradient">B</div>
         </header>
 
-        <div class="benefits-bar">
-          <h2>🎉 Resgatar benefícios ✨</h2>
+        <div class="benefits-bar d-flex align-items-center mx-3 my-3 px-3 rounded shadow-sm">
+          <h2 class="m-0 ms-3 fw-bold fs-4">🎉 Resgatar benefícios ✨</h2>
         </div>
 
-        <main id="content-fundo">
-          <button class="points-bar">
-            
-            <div class="points-left">
-              <span class="points-title">Pontos acumulados</span>
-              <div class="points-value-row">
-                <span class="points-value">3.000</span>
-                <span class="points-icon">P</span>
+        <main id="content-fundo" class="d-flex flex-column">
+          <section class="points-bar d-flex justify-content-between align-items-center mx-3 mb-3 px-4 py-3 rounded shadow-sm">
+            <div class="points-left d-flex flex-column gap-1">
+              <span class="points-title fw-semibold fs-5">Pontos acumulados</span>
+              <div class="points-value-row d-flex align-items-center gap-2">
+                <span class="points-value fw-bold">3.000</span>
+                <span class="points-icon d-inline-flex align-items-center justify-content-center fw-bold">P</span>
               </div>
             </div>
             <div class="points-right">
-              <a href="/program" id="link-rewards">Saiba mais sobre o Programa de Sucesso Cooperativo</a>
+              <button
+                id="reset-points"
+                class="btn btn-secondary rounded-pill"
+                type="button"
+              >
+                <i class="bi bi-arrow-counterclockwise"></i> Resetar pontos
+              </button>
             </div>
-          </button>
+          </section>
 
-          <div class="rewards-grid">
-            <div class="reward-card green">
-              <h3>Até 15% de desconto em Exames</h3>
-              <img src="./assets/img/261-2614450_airport-clip-art-black-and-white-download-chemical-reactions-clipart-black-and (1).png" alt="Exames" class="card-icon-potion">
-              <button class="redeem-btn">Resgatar</button>
-              <p class="cost">Custo: <b>950 °</b></p>
+          <section id="cupons-ativos-wrap" class="cupons-ativos d-none mx-3 mb-3 p-3 rounded shadow-sm">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h3 class="cupons-title m-0 d-flex align-items-center gap-2 fw-semibold">
+                <i class="bi bi-ticket-perforated"></i> Meus cupons
+              </h3>
+              <span id="cupons-count" class="badge text-bg-light border"></span>
+            </div>
+            <div id="cupons-lista" class="cupons-lista"></div>
+          </section>
+
+          <div class="row row-cols-1 row-cols-md-2 g-3 mx-3 mb-4">
+            <div class="col">
+              <div class="reward-card green d-flex flex-column align-items-start p-4 rounded shadow-sm h-100" data-especialidade="Dermatologia" data-desconto="10" data-cost="800">
+                <h3 class="fs-5 fw-semibold">10% de desconto em Dermatologia</h3>
+                <img
+                  src="./assets/img/261-2614450_airport-clip-art-black-and-white-download-chemical-reactions-clipart-black-and (1).png"
+                  alt="Dermatologia"
+                  class="card-icon-potion"
+                />
+                <button class="redeem-btn align-self-end mt-auto">Resgatar</button>
+                <p class="cost align-self-end m-2 small">Custo: <b>800 pts</b></p>
+              </div>
             </div>
 
-            <div class="reward-card blue">
-              <h3>Até 20% de desconto em Consultas</h3>
-              <img src="./assets/img/png-transparent-stethoscope-stethoscope-illustration-planner-icon-dr-logo-dr-appointment-icon.png" alt="Consultas" class="card-icon">
-              <button class="redeem-btn">Resgatar</button>
-              <p class="cost">Custo: <b>1200 °</b></p>
+            <div class="col">
+              <div class="reward-card blue d-flex flex-column align-items-start p-4 rounded shadow-sm h-100" data-especialidade="Pediatria" data-desconto="15" data-cost="1000">
+                <h3 class="fs-5 fw-semibold">15% de desconto em Pediatria</h3>
+                <img
+                  src="./assets/img/png-transparent-stethoscope-stethoscope-illustration-planner-icon-dr-logo-dr-appointment-icon.png"
+                  alt="Pediatria"
+                  class="card-icon"
+                />
+                <button class="redeem-btn align-self-end mt-auto">Resgatar</button>
+                <p class="cost align-self-end m-2 small">Custo: <b>1000 pts</b></p>
+              </div>
             </div>
 
-            <div class="reward-card yellow">
-              <h3>Até 10% de desconto em Odontologia</h3>
-              <img src="./assets/img/103386 (1).png" alt="Odontologia" class="card-icon">
-              <button class="redeem-btn">Resgatar</button>
-              <p class="cost">Custo: <b>800 °</b></p>
+            <div class="col">
+              <div class="reward-card yellow d-flex flex-column align-items-start p-4 rounded shadow-sm h-100" data-especialidade="Psiquiatria" data-desconto="10" data-cost="900">
+                <h3 class="fs-5 fw-semibold">10% de desconto em Psiquiatria</h3>
+                <img
+                  src="./assets/img/103386 (1).png"
+                  alt="Psiquiatria"
+                  class="card-icon"
+                />
+                <button class="redeem-btn align-self-end mt-auto">Resgatar</button>
+                <p class="cost align-self-end m-2 small">Custo: <b>900 pts</b></p>
+              </div>
             </div>
 
-            <div class="reward-card red">
-              <h3>Até 5% de desconto em Cirurgias</h3>
-              <img src="./assets/img/heart-icon-md (1).png" alt="Cirurgias" class="card-icon-heart">
-              <button class="redeem-btn">Resgatar</button>
-              <p class="cost">Custo: <b>1500 °</b></p>
+            <div class="col">
+              <div class="reward-card red d-flex flex-column align-items-start p-4 rounded shadow-sm h-100" data-especialidade="Cardiologia" data-desconto="20" data-cost="1500">
+                <h3 class="fs-5 fw-semibold">20% de desconto em Cardiologia</h3>
+                <img
+                  src="./assets/img/heart-icon-md (1).png"
+                  alt="Cardiologia"
+                  class="card-icon-heart"
+                />
+                <button class="redeem-btn align-self-end mt-auto">Resgatar</button>
+                <p class="cost align-self-end m-2 small">Custo: <b>1500 pts</b></p>
+              </div>
             </div>
           </div>
+        </main>
       </main>
-      <div class="points-actions">
-  <button id="reset-points" class="btn btn-secondary rounded-pill">
-    Resetar pontos
-  </button>
-</div>
     </div>
-    
-</body>
+  </body>
 </html>

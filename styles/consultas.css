@@ -42,8 +42,84 @@ header h1 {
 }
 
 td, th {
-    padding: var(--s-6);
-    height: var(--density-row);
+    padding: var(--s-3) var(--s-6);
+    height: auto;
     vertical-align: middle;
-    justify-content: space-between;
+}
+
+.container-table-agendados tbody tr {
+    height: 44px;
+}
+
+.container-table-agendados tbody td {
+    border-bottom: 1px solid var(--ink-200);
+}
+
+.container-table-agendados tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.container-table-agendados td.col-acoes,
+.container-table-agendados th.col-acoes {
+    width: 1%;
+    white-space: nowrap;
+    text-align: right;
+}
+
+/* ─── Responsivo ─── */
+@media (max-width: 767.98px) {
+    .container-table-agendados,
+    .container-table-agendados tbody,
+    .container-table-agendados tr,
+    .container-table-agendados td {
+        display: block;
+        width: 100%;
+    }
+    .container-table-agendados thead,
+    .container-table-agendados .cabecalho {
+        display: none;
+    }
+    .container-table-agendados {
+        border: none;
+        background: transparent;
+        overflow: visible;
+    }
+    .container-table-agendados tbody tr {
+        height: auto;
+        background: var(--surface);
+        border: 1px solid var(--ink-200);
+        border-radius: var(--r-md);
+        padding: var(--s-3);
+        margin-bottom: var(--s-3);
+        box-shadow: var(--sh-1);
+    }
+    .container-table-agendados tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--s-3);
+        padding: var(--s-2) 0;
+        border-bottom: 1px dashed var(--ink-150);
+        text-align: right;
+    }
+    .container-table-agendados tbody tr td:last-child {
+        border-bottom: none;
+    }
+    .container-table-agendados tbody td::before {
+        content: attr(data-label);
+        font-weight: var(--fw-semi);
+        color: var(--ink-500);
+        text-align: left;
+        flex-shrink: 0;
+    }
+    .container-table-agendados td.col-acoes {
+        width: 100%;
+        white-space: normal;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .cal-select-month { width: 110px; }
+    .cal-select-year { width: 84px; }
 }
